@@ -1,6 +1,6 @@
-# Seen My Kid
+# UpNext
 
-Seen My Kid allows event organizers to provide realtime scheduling updates to event attendees. Organizers are able to schedule events using a web application.A sign-up link will be provided to attendees to sign up for realtime performance schedule updates. When a performance completes and the next one is queued, text messages or emails will be dispatched to inform subscribers.
+UpNext allows event organizers to provide realtime scheduling updates to event attendees. Organizers are able to schedule events using a web application. A sign-up link will be provided to attendees to sign up for realtime performance schedule updates. When a performance completes and the next one is queued, text messages or emails will be dispatched to inform subscribers.
 
 ## Setup
 
