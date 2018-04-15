@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import './App.css';
 
-import CardView from './components/CardView';
-
+import SideBar from './components/SideBar';
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <h1> ADMIN EVENT LIST </h1>
-          <CardView />
-         
+      <div>
+        <SideBar />
       </div>
     );
   }
 }
 
+
 export default App;
+
+
+
+
 
 
 // ****PERSONAL NOTES******
@@ -31,3 +32,9 @@ export default App;
 //what next- update that card component's state in order to make it reactive (DO NOW)
 //then? get those cards to dsiplay/delete when needed (STILL NEED TO BE DONE)
 //Need to implement breadcrumbs too (semantic-ui has a good solution for this)
+
+//First thing to do today? Implement a  form so that i can add more cards to the cardview component
+
+
+
+//Get router done first!!!!!!!!!!!
