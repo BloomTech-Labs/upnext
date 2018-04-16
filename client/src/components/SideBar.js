@@ -1,30 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react';
+import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Home from './Home';
+import Events from './eventUtils/Events';
 
-const SideBar = () => {
-  return (
-    <Wrapper>
-      <h3> <AnchorTag href='#'>This is a sidebar </AnchorTag></h3>
-      <h3> <AnchorTag href='#'>this is another item </AnchorTag></h3>
-    </Wrapper>
-  )
+
+class SideBar extends Component {
+  state = { visible: true }
+
+  // toggleVisibility = () => this.setState({ visible: !this.state.visible })
+
+  render() {
+    const { visible } = this.state
+    return (
+    <div>
+      {/* <Button onClick={this.toggleVisibility}>Menu</Button> */}
+        <Sidebar as={Menu} width='thin' direction="top" visible={visible} icon='labeled'  inverted>
+          <Menu.Item name='home'>
+          <Link to ="/">
+            <Icon name='home' />
+            Home
+            </Link>
+          </Menu.Item>
+          <Menu.Item name='tasks'>
+            <Link to ="/events">
+              <Icon name='tasks' />
+              Events
+              </Link>
+          </Menu.Item>
+          <Menu.Item name='settings'>
+            <Link to ="/settings">
+              <Icon name='settings' />
+              Settings
+              </Link>
+          </Menu.Item>
+          <Menu.Item name='signUp'>
+            <Link to ="/signUp">
+              <Icon name='user plus' />
+              Sign Up
+              </Link>
+          </Menu.Item>
+          <Menu.Item name='signIn'>
+            <Link to ="/signIn">
+              <Icon name='sign in' />
+              Sign In
+              </Link>
+          </Menu.Item>
+        </Sidebar>
+        {/* <Sidebar.Pusher>
+        
+            <Container />
+          
+        </Sidebar.Pusher> */}
+
+        <Route exact path="/" component={Home} />
+        <Route path="/events" component={Events} />
+        {/* <Route exact path="/" component={Home} /> */}
+    </div>
+    )
+  }
 }
 
-const Wrapper = styled.div`
-  align-items: left;
-  margin:auto;
-  border: 3px solid black;
-  border-radius: 2%;
-  display:inline-flex;
-  flex-direction: column;
-  width: 250px;
-  height: 800px;
-  padding-left: 10px;
-`
-const AnchorTag = styled.a`
-  color: black;
-  text-decoration: none;
-`
 
-export default SideBar;
+
+
+
+export default SideBar
