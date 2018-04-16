@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import SideBar from './components/SideBar';
+import EventForm from './components/eventUtils/EventForm';
 
 
 class App extends Component {
