@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-class EventForm extends Component {
+class SignUpForm extends Component {
   render() {
     return(
   
         <Form>
         <PrettyForm>
           <Form.Field required='true'>
-            <label>Event Name</label>
-            <input placeholder='Event Name' />
+            <label>Email</label>
+            <input placeholder='Enter your email' />
           </Form.Field>
-          <Form.Field>
-            <label>Date and Time</label>
-            <input placeholder='MM/DD/YYYY' />
+          <Form.Field required='true'>
+            <label>Password</label>
+            <input placeholder='New Password' />
           </Form.Field>
-          <Form.Field>
-            <label> Event Description </label>
-            <Form.TextArea placeholder="Add some details about the event" />
+          <Form.Field required='true'>
+            <label> Confirm Password </label>
+            <input placeholder="Confirm Password" />
           </Form.Field>
           <Form.Button>Submit</Form.Button>
           </PrettyForm>
@@ -35,4 +35,4 @@ const PrettyForm = styled.div`
   margin-top: 60px;
 `
 
-export default EventForm;
+export default SignUpForm;

@@ -5,6 +5,11 @@ import styled from 'styled-components';
 
 import Home from './Home';
 import Events from './eventUtils/Events';
+import EventForm from './eventUtils/EventForm';
+import SignUp from './userUtils/SignUp';
+import SignIn from './userUtils/SignIn';
+import Settings from './userUtils/Settings';
+
 
 
 class SideBar extends Component {
@@ -49,14 +54,18 @@ class SideBar extends Component {
               </Link>
           </Menu.Item>
         </Sidebar>
-        {/* <Sidebar.Pusher>
+        {/* <Sidebar.Pusher basic>
         
-            <Container />
+            <Home />
           
         </Sidebar.Pusher> */}
 
         <Route exact path="/" component={Home} />
         <Route path="/events" component={Events} />
+        <Route path="/settings" component={Settings} />
+        <Route path="/eventForm" component={EventForm} />
+        <Route path="/signUp" component={SignUp} />
+        <Route path="/signIn" component={SignIn} />
         {/* <Route exact path="/" component={Home} /> */}
     </div>
     )

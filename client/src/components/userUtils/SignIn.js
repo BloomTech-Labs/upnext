@@ -9,16 +9,12 @@ class EventForm extends Component {
         <Form>
         <PrettyForm>
           <Form.Field required='true'>
-            <label>Event Name</label>
-            <input placeholder='Event Name' />
+            <label>Email</label>
+            <input placeholder='Enter your email' />
           </Form.Field>
-          <Form.Field>
-            <label>Date and Time</label>
-            <input placeholder='MM/DD/YYYY' />
-          </Form.Field>
-          <Form.Field>
-            <label> Event Description </label>
-            <Form.TextArea placeholder="Add some details about the event" />
+          <Form.Field required='true'>
+            <label>Password</label>
+            <input placeholder='Enter your password' />
           </Form.Field>
           <Form.Button>Submit</Form.Button>
           </PrettyForm>
