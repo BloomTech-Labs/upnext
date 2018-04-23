@@ -36,6 +36,18 @@ module.exports.routes = {
 
   'POST /testroutes/sendgrid': {
     action: 'testroutes/sendgrid'
+  },
+
+  'POST /signup': {
+    action: 'entrance/signup'
+  },
+
+  'POST /login': {
+    action: 'entrance/login'
+  },
+
+  '/logout': {
+    action: 'account/logout'
   }
 
   /***************************************************************************
