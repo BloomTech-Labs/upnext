@@ -1,4 +1,4 @@
-https://app.codeship.com/projects/1bc48170-2385-0136-a756-5a63e040b7ed/status?branch=master
+[ ![Codeship Status for Lambda-School-Labs/uppnext](https://app.codeship.com/projects/1bc48170-2385-0136-a756-5a63e040b7ed/status?branch=master)](https://app.codeship.com/projects/286117)
 
 # UpNext
 
