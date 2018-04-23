@@ -1,3 +1,5 @@
+https://app.codeship.com/projects/1bc48170-2385-0136-a756-5a63e040b7ed/status?branch=master
+
 # UpNext
 
 UpNext allows event organizers to provide realtime scheduling updates to event attendees. Organizers are able to schedule events using a web application. A sign-up link will be provided to attendees to sign up for realtime performance schedule updates. When a performance completes and the next one is queued, text messages or emails will be dispatched to inform subscribers.
