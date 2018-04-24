@@ -38,6 +38,10 @@ module.exports.routes = {
     action: 'testroutes/sendgrid'
   },
 
+  'POST /twilio': {
+    action: 'testroutes/twilio'
+  },
+
   'POST /signup': {
     action: 'entrance/signup'
   },

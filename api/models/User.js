@@ -52,7 +52,7 @@ On the other hand, for an e-commerce website like Walmart.com that has undergone
 by a large team, those administrative features might be split across a few different roles.
 
 So, while this \`isSuperAdmin\` demarcation might not be the right approach forever, it's a good place to start.`
-    }
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -62,5 +62,10 @@ So, while this \`isSuperAdmin\` demarcation might not be the right approach fore
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    events: {
+      collection: 'event',
+      via: 'subscribers'
+    }
   }
 };
