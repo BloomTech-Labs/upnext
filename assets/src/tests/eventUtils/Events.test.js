@@ -8,7 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Events>', () => {
   it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<TestComponent />, div);
+    const wrapper = shallow(<TestComponent />);
+    expect(wrapper).toHaveLength(1);
   });
 });
