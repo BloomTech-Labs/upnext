@@ -5,6 +5,7 @@
   "description": "upnext description",
   "keywords": [],
   "dependencies": {
+    "@babel/preset-env": "^7.0.0-beta.46",
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
@@ -13,13 +14,15 @@
     "axios": "^0.18.0",
     "file-loader": "^1.1.11",
     "grunt": "1.0.1",
-    "machinepack-sendgrid": "^1.0.2",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.4",
     "redux": "^3.7.2",
+    "redux-persist": "^5.9.1",
+    "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
     "sails": "^1.0.0",
     "sails-hook-grunt": "^3.0.2",
@@ -32,21 +35,27 @@
     "stripe": "^5.8.0",
     "styled-components": "^3.2.5",
     "supertest": "^3.0.0",
+    "twilio": "^3.15.1",
     "url-loader": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
+    "@babel/preset-stage-2": "^7.0.0-beta.46",
     "@sailshq/eslint": "^4.19.3",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^8.0.0-beta.2",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^3.6.0",
+    "jest": "^22.4.3",
     "npm-run-all": "^4.1.2",
     "rimraf": "^2.6.2",
     "style-loader": "^0.20.3",
-    "webpack": "^4.5.0",
+    "webpack": "^4.6.0",
     "webpack-cli": "^2.0.14",
     "webpack-dev-server": "^3.1.2 "
   },
@@ -63,7 +72,15 @@
     "heroku-prebuild": "npm run clean",
     "heroku-postbuild": "rm -rf .tmp && npm install && npm run build",
     "mystart": "node app.js",
-    "test": "node ./node_modules/supertest test/lifecycle.test.js test/integration/**/*.test.js && jest"
+    "test":
+      "node ./node_modules/supertest test/lifecycle.test.js test/integration/**/*.test.js && jest --coverage"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/assetsTransformer.js",
+      "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
+    }
   },
   "main": "app.js",
   "author": "upnext",

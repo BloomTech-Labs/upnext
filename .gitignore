@@ -133,3 +133,4 @@ lib-cov
 
 config/custom.js
 config/datastores.js
+coverage
