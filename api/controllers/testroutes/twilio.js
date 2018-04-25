@@ -1,6 +1,6 @@
 const accountSid = '';
 const authToken = '';
-const client = require('twilio')(accountSid, authToken);
+const client = 0; // require('twilio')(accountSid, authToken);
 module.exports = {
   friendlyName: 'Twilio Endpoint',
 

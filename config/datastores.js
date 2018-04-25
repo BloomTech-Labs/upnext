@@ -45,6 +45,7 @@ module.exports.datastores = {
      *    (See https://sailsjs.com/config/datastores for help.)                 *
      *                                                                          *
      ***************************************************************************/
-    adapter: 'sails-postgresql'
+    adapter: require('sails-postgresql'),
+    url: 'postgres://postgres:waterfall1@localhost:5432/testdb'
   }
 };
