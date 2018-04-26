@@ -41,7 +41,7 @@ class SignUpForm extends Component {
     return(
         <Form onSubmit={this.handleSubmit}>
         <PrettyForm>
-        <Form.Field required={true}>'
+        <Form.Field required={true}>
             <label>Full Name</label>
             <input 
             required={true}
@@ -49,7 +49,7 @@ class SignUpForm extends Component {
             type='text'
             value={this.state.fullName}
             onChange={this.handleChange}
-            placeholder='fullName' />
+            placeholder='Full Name' />
           </Form.Field>
 
           <Form.Field required={true}>'
