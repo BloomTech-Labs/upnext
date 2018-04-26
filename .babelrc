@@ -3,5 +3,8 @@
     ["@babel/preset-stage-2", { "decoratorsLegacy": true }],
     ["@babel/preset-react", { "modules": true }],
     "@babel/preset-env"
+  ],
+  "plugins": [
+    ["transform-class-properties", { "spec": true }]
   ]
 }
