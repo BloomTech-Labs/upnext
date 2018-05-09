@@ -21,7 +21,6 @@
  */
 
 module.exports.routes = {
-
   /***************************************************************************
    *                                                                          *
    * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
@@ -47,17 +46,22 @@ module.exports.routes = {
 
   'get /api/user/get': 'user/UserController.get',
 
-  'get /api/products/get': 'ProductsController.getProducts',
+  'get /api/products/get': 'products/ProductsController.getProducts',
 
-  'post /api/user/products/product/post': 'user/products/product/ProductController.postProduct',
+  'post /api/user/products/product/post':
+    'user/products/product/ProductController.postProduct',
 
-  'get /api/user/products/product/get': 'user/products/product/ProductController.getProduct',
+  'get /api/user/products/product/get':
+    'user/products/product/ProductController.getProduct',
 
-  'patch /api/user/products/product/patch': 'user/products/product/ProductController.patchProduct',
+  'patch /api/user/products/product/patch':
+    'user/products/product/ProductController.patchProduct',
 
-  'delete /api/user/products/product/delete': 'user/products/product/ProductController.deleteProduct',
+  'delete /api/user/products/product/delete':
+    'user/products/product/ProductController.deleteProduct',
 
-  'get /api/user/products/getProductsByUser': 'user/products/ProductsController.getProductsByUser',
+  'get /api/user/products/getProductsByUser':
+    'user/products/ProductsController.getProductsByUser',
 
   'get /api/user/products/get': 'user/products/ProductsController.getProducts',
 
@@ -72,5 +76,4 @@ module.exports.routes = {
    * for configuration options and examples.                                  *
    *                                                                          *
    ***************************************************************************/
-
-}
+};

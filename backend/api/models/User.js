@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   attributes: {
@@ -20,33 +20,33 @@ module.exports = {
     }
   },
 
-  customToJSON () {
-    let user = this.toObject()
-    delete user.password
+  customToJSON() {
+    //let user = this.toObject();
+    //delete user.password;
 
-    return user
+    return _.omit(this, ['password']);
   },
 
   beforeCreate: (user, next) => {
     bcrypt.genSalt(10, (error, salt) => {
-      if (error) return next(error)
+      if (error) return next(error);
 
       bcrypt.hash(user.password, salt, (error, hash) => {
-        if (error) return next(error)
+        if (error) return next(error);
 
-        user.password = hash
-        next()
-      })
-    })
+        user.password = hash;
+        next();
+      });
+    });
   },
 
   checkIfPasswordIsValid: (password, user, callback) => {
     bcrypt.compare(password, user.password, (error, isMatch) => {
-      if (error) callback(error)
+      if (error) callback(error);
 
       if (isMatch) {
-        callback(null, true)
-      } else callback(error, false)
-    })
+        callback(null, true);
+      } else callback(error, false);
+    });
   }
-}
+};
