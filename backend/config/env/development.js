@@ -11,14 +11,18 @@
  */
 
 module.exports = {
-
   /***************************************************************************
    * Set the default database connection for models in the development       *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-
   // models: {
   //   connection: 'someMongodbServer'
   // }
-
+  // datastores: {
+  //   adapter: 'sails-postgresql',
+  //   url: 'postgres://postgres:waterfall1@localhost:5432/vuesails'
+  //   // models: {
+  //   //   connection: 'someMongodbServer'
+  //   // }
+  // }
 };

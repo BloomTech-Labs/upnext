@@ -8,7 +8,7 @@ module.exports = {
       type: 'string'
     },
     price: {
-      type: 'float',
+      type: 'number',
       required: true
     },
 
@@ -16,4 +16,4 @@ module.exports = {
       model: 'user'
     }
   }
-}
+};

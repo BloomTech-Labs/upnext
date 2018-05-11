@@ -16,9 +16,7 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-
 module.exports.policies = {
-
   /***************************************************************************
    *                                                                          *
    * Default policy for all controllers and actions (`true` allows public     *
@@ -49,15 +47,15 @@ module.exports.policies = {
   // feed : ['isNiceToAnimals', 'hasRabbitFood']
   // }
 
-  'RegisterController': {
+  RegisterController: {
     '*': true
   },
 
-  'LoginController': {
+  LoginController: {
     '*': true
   },
 
-  'ProductController': {
+  ProductController: {
     '*': 'isAuthorized'
   },
 
@@ -69,7 +67,7 @@ module.exports.policies = {
     '*': 'isAuthorized'
   },
 
-  'ProductsController': {
+  ProductsController: {
     '*': true
   },
 

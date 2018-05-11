@@ -11,7 +11,6 @@
  */
 
 module.exports = {
-
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
@@ -20,6 +19,12 @@ module.exports = {
   // models: {
   //   connection: 'someMysqlServer'
   // },
+  datastores: {
+    default: {
+      adapter: 'sails-postgresql',
+      url: process.env.DATABASE_URL
+    }
+  }
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
@@ -34,11 +39,4 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-  datastores: {
-    default: {
-      adapter: 'sails-postgresql',
-      url: process.env.DATABASE_URL
-    }
-  }
-
 };
