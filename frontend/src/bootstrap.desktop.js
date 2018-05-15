@@ -3,12 +3,9 @@ import App from './App.desktop'
 
 import router from './router/router.desktop'
 import Vuetify from 'vuetify'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import 'vuetify/dist/vuetify.min.css'
 
-Vue.use(BootstrapVue)
 Vue.use(Vuetify)
 
 Vue.http.interceptors.push((request, next) => {

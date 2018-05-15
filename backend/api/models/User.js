@@ -17,6 +17,10 @@ module.exports = {
     baskets: {
       collection: 'basket',
       via: 'user'
+    },
+    events: {
+      collection: 'event',
+      via: 'subscribers'
     }
   },
 

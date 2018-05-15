@@ -24,6 +24,24 @@ const users = [
   }
 ];
 
+const events = [
+  {
+    groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
+    startDate: Date.now(),
+    description: 'The first event ever!!!!'
+  },
+  {
+    groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
+    startDate: Date.now(),
+    description: 'The second event ever!!!!'
+  },
+  {
+    groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
+    startDate: Date.now(),
+    description: 'The third event ever!!!!'
+  }
+];
+
 const products = [
   {
     title: 'Cell phone',
@@ -116,6 +134,18 @@ module.exports.bootstrap = function(cb) {
           sails.log.info('Created fixture user', user);
         });
       }
+    });
+  });
+
+  events.forEach(event => {
+    Event.create({
+      groupsWithTime: event.groupsWithTime,
+      startDate: event.startDate,
+      description: event.description
+    }).exec((error, event) => {
+      if (error) sails.log.error(error);
+
+      sails.log.info('Created fixture event', product);
     });
   });
 

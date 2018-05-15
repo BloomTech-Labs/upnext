@@ -14,6 +14,20 @@ export default new Router({
       }
     },
     {
+      path: '/admincreate',
+      name: 'AdminEventCreate',
+      component: resolve => {
+        require(['./../components/AdminEventCreate.desktop.vue'], resolve)
+      }
+    },
+    {
+      path: '/events',
+      name: 'TestEvents',
+      component: resolve => {
+        require(['./../components/TestEvents.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '/alt',
       name: 'AltHome',
       component: resolve => {
