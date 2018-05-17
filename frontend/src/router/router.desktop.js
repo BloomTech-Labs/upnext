@@ -21,6 +21,13 @@ export default new Router({
       }
     },
     {
+      path: '/adminlist',
+      name: 'AdminEventsList',
+      component: resolve => {
+        require(['./../components/AdminEventsList.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '/events',
       name: 'TestEvents',
       component: resolve => {
