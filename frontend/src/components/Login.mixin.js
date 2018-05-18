@@ -36,9 +36,8 @@ export default {
       window.localStorage.setItem('token', token)
       this.setCookie('user', cookie, 3600 * 24 * 7)
       this.setIsUserAuthenticated(true)
-      this.$emit('userLoggedIn')
-      
-      this.$router.push({name: 'TestEvents'})
+
+      this.$router.push({ name: 'TestEvents' })
     },
 
     setCookie (name, value, seconds) {

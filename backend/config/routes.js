@@ -48,6 +48,8 @@ module.exports.routes = {
 
   'get /api/products/get': 'products/ProductsController.getProducts',
 
+  'get /api/events/get': 'events/EventsController.getEvents',
+
   'post /api/user/products/product/post':
     'user/products/product/ProductController.postProduct',
 

@@ -18,22 +18,25 @@
       {{/*SOME EVENTS TO SHOW*/}}
       <v-layout v-show="true" justify-center row wrap>
 
-        <v-flex xs4>
+
+        <v-flex v-for="event in events" xs4>
           <v-card>
             <v-layout row>
               <v-card-title primary-title>
-                  <h3 class="headline mb-0">Event 1 Title</h3>
+                  <h3 class="headline mb-0">{{event.title}}</h3>
               </v-card-title>
               <v-spacer></v-spacer>
-              <v-btn icon class="mt-2 mr-2" >
+              <v-btn @click="delete(event.id)" icon class="mt-2 mr-2" >
                 <v-icon medium >delete</v-icon>
               </v-btn>
             </v-layout>
             <v-card-text>
-              <div class="text-sm-left">Details details details details...... Details details details details......Details details details details......</div>
+              <div class="text-sm-left">{{event.description}}</div>
             </v-card-text>
           </v-card>
         </v-flex>
+
+
 
         <v-flex xs4>
           <v-card>
@@ -71,3 +74,13 @@
 
 <style>
 </style>
+
+<script>
+import EventsMixin from './AdminEventsList.mixin'
+
+
+export default {
+  mixins: [EventsMixin]
+}
+</script>
+

@@ -10,6 +10,13 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    title: {
+      type: 'string',
+      description: 'Title of the event',
+      required: true,
+      example: "Mother's Day Parade"
+    },
+
     groupsWithTime: {
       type: 'json',
       description: 'Groups that are performing',

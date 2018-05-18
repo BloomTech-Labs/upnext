@@ -1,3 +1,5 @@
+// eslint-disable
+
 import { mapMutations } from 'vuex'
 
 export default {
@@ -31,19 +33,22 @@ export default {
 
   methods: {
     async login () {
-      let {token, cookie} = await this.$store.dispatch('loginUser', this.user)
+      let { token, cookie } = await this.$store.dispatch('loginUser', this.user)
 
       window.localStorage.setItem('token', token)
       this.setCookie('user', cookie, 3600 * 24 * 7)
       this.setIsUserAuthenticated(true)
       this.$emit('userLoggedIn')
-
-      this.$router.push({name: 'Products'})
+      this.$router.push({ name: 'Products' })
     },
 
     setCookie (name, value, seconds) {
-      const expires = seconds ? '; expires=' + new Date(new Date().getTime() + seconds * 1000).toGMTString() : ''
-      document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/'
+      const expires = seconds
+        ? '; expires=' +
+          new Date(new Date().getTime() + seconds * 1000).toGMTString()
+        : ''
+      document.cookie =
+        name + '=' + encodeURIComponent(value) + expires + '; path=/'
     },
 
     ...mapMutations({

@@ -4,7 +4,7 @@ import user from './user/user.module'
 import product from './product/product.module'
 import products from './products/products.module'
 import basket from './basket/basket.module'
-
+import events from './events/events.module'
 Vue.use(Vuex)
 
 const getCookie = name => {
@@ -17,12 +17,13 @@ export default new Vuex.Store({
     User: user,
     Product: product,
     Products: products,
-    Basket: basket
+    Basket: basket,
+    Events: events
   },
 
   state: {
     locale: 'en',
-    isUserAuthenticated: !!(getCookie('user')),
+    isUserAuthenticated: !!getCookie('user'),
     isHelpVisible: false
   },
 

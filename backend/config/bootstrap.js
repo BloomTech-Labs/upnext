@@ -26,16 +26,19 @@ const users = [
 
 const events = [
   {
+    title: 'Event1',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
     startDate: Date.now(),
     description: 'The first event ever!!!!'
   },
   {
+    title: 'Event2',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
     startDate: Date.now(),
     description: 'The second event ever!!!!'
   },
   {
+    title: 'Event3',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
     startDate: Date.now(),
     description: 'The third event ever!!!!'
@@ -139,6 +142,7 @@ module.exports.bootstrap = function(cb) {
 
   events.forEach(event => {
     Event.create({
+      title: event.title,
       groupsWithTime: event.groupsWithTime,
       startDate: event.startDate,
       description: event.description
