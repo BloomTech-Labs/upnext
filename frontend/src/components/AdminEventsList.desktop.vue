@@ -78,7 +78,6 @@
 <script>
 import EventsMixin from './AdminEventsList.mixin'
 
-
 export default {
   mixins: [EventsMixin]
 }

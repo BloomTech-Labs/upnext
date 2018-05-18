@@ -13,7 +13,7 @@ export default {
         .catch(error => reject(error))
     })
   },
-  deleteEvent (id) {
+  deleteEvent (context, id) {
     return new Promise((resolve, reject) => {
       console.log('INSIDE deleteEvent Action, ID:', id)
       Vue.http

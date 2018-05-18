@@ -21,7 +21,11 @@ module.exports = {
       type: 'json',
       description: 'Groups that are performing',
       required: true,
-      example: { Group1: '1:00', Group2: '2:00', Group3: '3:00' }
+      example: {
+        0: { Group1: '1:00' },
+        1: { Group2: '2:00' },
+        2: { Group3: '3:00' }
+      }
     },
 
     startDate: {
@@ -51,6 +55,10 @@ module.exports = {
     subscribers: {
       collection: 'user',
       via: 'events'
+    },
+    owner: {
+      model: 'user',
+      required: true
     }
   }
 };

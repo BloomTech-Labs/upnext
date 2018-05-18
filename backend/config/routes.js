@@ -56,6 +56,8 @@ module.exports.routes = {
 
   'delete /api/events/delete': 'events/EventsController.deleteEvent',
 
+  'post /api/events/add': 'events/EventsController.addEvent',
+
   /***************************************************************************/
   /**                                ADDED                                  **/
   /***************************************************************************/

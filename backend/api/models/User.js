@@ -10,6 +10,10 @@ module.exports = {
       type: 'string',
       required: true
     },
+    isAdmin: {
+      type: 'Boolean',
+      required: true
+    },
     products: {
       collection: 'product',
       via: 'user'
@@ -21,6 +25,10 @@ module.exports = {
     events: {
       collection: 'event',
       via: 'subscribers'
+    },
+    adminEvents: {
+      collection: 'event',
+      via: 'owner'
     }
   },
 
