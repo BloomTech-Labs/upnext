@@ -48,7 +48,17 @@ module.exports.routes = {
 
   'get /api/products/get': 'products/ProductsController.getProducts',
 
+  /***************************************************************************/
+  /**                                ADDED                                  **/
+  /***************************************************************************/
+
   'get /api/events/get': 'events/EventsController.getEvents',
+
+  'delete /api/events/delete': 'events/EventsController.deleteEvent',
+
+  /***************************************************************************/
+  /**                                ADDED                                  **/
+  /***************************************************************************/
 
   'post /api/user/products/product/post':
     'user/products/product/ProductController.postProduct',

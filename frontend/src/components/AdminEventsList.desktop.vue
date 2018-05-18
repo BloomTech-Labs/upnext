@@ -26,7 +26,7 @@
                   <h3 class="headline mb-0">{{event.title}}</h3>
               </v-card-title>
               <v-spacer></v-spacer>
-              <v-btn @click="delete(event.id)" icon class="mt-2 mr-2" >
+              <v-btn @click="deleteSingleEvent(event.id)" icon class="mt-2 mr-2" >
                 <v-icon medium >delete</v-icon>
               </v-btn>
             </v-layout>

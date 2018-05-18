@@ -16,6 +16,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(['getEvents'])
+    ...mapActions(['getEvents', 'deleteEvent']),
+    deleteSingleEvent (id) {
+      console.log('ABOUT TO DELETE, ID:', id, '\nThis:', this)
+      this.deleteEvent(id).then(() => {
+        console.log('SUCCESSFUL DELETION: WORLD SAVED')
+        this.getEvents(this)
+      })
+    }
   }
 }

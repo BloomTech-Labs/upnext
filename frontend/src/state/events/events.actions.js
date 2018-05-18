@@ -12,5 +12,14 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+  deleteEvent (id) {
+    return new Promise((resolve, reject) => {
+      console.log('INSIDE deleteEvent Action, ID:', id)
+      Vue.http
+        .delete('/api/events/delete', { params: { id } })
+        .then(() => resolve())
+        .catch(error => reject(error))
+    })
   }
 }
