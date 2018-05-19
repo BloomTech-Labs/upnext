@@ -28,6 +28,13 @@ export default new Router({
       }
     },
     {
+      path: '/nonadminshow',
+      name: 'NonAdminShow',
+      component: resolve => {
+        require(['./../components/NonAdminEventShow.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '/events',
       name: 'TestEvents',
       component: resolve => {

@@ -11,7 +11,7 @@
         <v-list-tile :key="group.name" v-for="(group, index) in groups">
           <v-list-tile-content>
             <v-layout justify-space-between>
-              <v-flex class="mt-3" xs4>{{index}})</v-flex>
+              <v-flex class="mt-3" xs4>{{index+1}})</v-flex>
               <v-flex class="ml-3 mt-3" xs4>{{group.name}}</v-flex>
               <v-flex class="ml-3 mt-3" xs4>{{group.time}}</v-flex>
             </v-layout>
@@ -25,6 +25,7 @@
             <v-checkbox v-show="nonAdmin" class="mr-5 mt-3" label="Sub" v-model="value" value="value"></v-checkbox>
           </v-list-tile-action>
         </v-list-tile>
+
       </v-list>
 
     </v-flex>
@@ -33,12 +34,11 @@
 </template>
 
 <script>
-
 import ScheduleMixin from './Schedule.mixin'
 
 export default {
   props: ['adminCreate', 'adminShow', 'nonAdmin'],
   mixins: [ScheduleMixin]
-};
+}
 </script>
 

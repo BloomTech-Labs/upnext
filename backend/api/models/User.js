@@ -24,7 +24,7 @@ module.exports = {
       collection: 'basket',
       via: 'user'
     },
-    events: {
+    subscribedEvents: {
       collection: 'event',
       via: 'subscribers'
     },

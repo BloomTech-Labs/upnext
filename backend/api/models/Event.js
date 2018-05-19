@@ -54,7 +54,7 @@ module.exports = {
 
     subscribers: {
       collection: 'user',
-      via: 'events'
+      via: 'subscribedEvents'
     },
     owner: {
       model: 'user'

@@ -34,10 +34,11 @@ export default {
       let { token, cookie } = await this.$store.dispatch('loginUser', this.user)
 
       window.localStorage.setItem('token', token)
+      window.localStorage.setItem('username', this.name)
       this.setCookie('user', cookie, 3600 * 24 * 7)
       this.setIsUserAuthenticated(true)
 
-      this.$router.push({ name: 'TestEvents' })
+      this.$router.push({ name: 'AdminEventCreate' })
     },
 
     setCookie (name, value, seconds) {

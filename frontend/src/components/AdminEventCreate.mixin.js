@@ -1,6 +1,4 @@
-import {
-  mapActions
-} from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data: function () {
@@ -12,25 +10,23 @@ export default {
   },
   computed: {
     groupsWithTime: {
-      get() {
-        return this.$store.state.Groups.groups.groups
-      }
-    },
-    owner: {
-      get() {
-        return this.$store.state.User.user.name
+      get () {
+        return this.$store.state.Groups.groups
       }
     }
   },
   methods: {
     ...mapActions(['addEvent']),
-    addSingleEvent() {
+    addSingleEvent () {
+      const groupObj = this.groupsWithTime.map(group => {
+        return group
+      })
       const newEvent = {
         title: this.title,
         startDate: this.startDate,
         description: this.description,
-        groupsWithTime: this.groupsWithTime,
-        owner: this.owner
+        groupsWithTime: groupObj,
+        owner: window.localStorage.getItem('username')
       }
       console.log('inside addEvent', newEvent)
       this.addEvent(newEvent).then(() => {

@@ -12,8 +12,7 @@
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
     "start": "http-server ../backend/assets -p 3000",
-    "test":
-      "pm2 start build/dev-server.js --name vue-sails-example -f & cypress run --headed && pm2 stop vue-sails-example && pm2 delete vue-sails-example",
+    "test": "pm2 start build/dev-server.js --name vue-sails-example -f & cypress run --headed && pm2 stop vue-sails-example && pm2 delete vue-sails-example",
     "buildnstart": "npm run build && cd  ../backend && sails lift"
   },
   "dependencies": {
@@ -97,5 +96,9 @@
     "node": ">=8.10",
     "npm": ">= 6.0.0"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

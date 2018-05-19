@@ -2,11 +2,17 @@ module.exports = {
   getEvents: {
     friendlyName: 'GetEvents',
 
-    description: 'Gets all the events',
+    description: 'Gets events for the particular user',
 
-    extendedDescription: `EVENTS`,
+    extendedDescription: `EVENTS FOR USER`,
 
-    inputs: {},
+    inputs: {
+      user: {
+        description: 'Name of user to get events for',
+        type: 'string',
+        required: true
+      }
+    },
 
     exits: {
       success: {
@@ -33,10 +39,17 @@ module.exports = {
       // regardless of which database we're using)
 
       //const page = req.param('page');
-
-      Event.find().exec((err, events) => {
-        exits.success({ events: events });
-      });
+      User.findOne({ name: inputs.user })
+        .populate('isAdmin')
+        .populate('subscribedEvents')
+        .populate('adminEvents')
+        .exec((err, user) => {
+          if (user.isAdmin) {
+            exits.success({ events: user.adminEvents });
+          } else {
+            exits.success({ events: user.subscribedEvents });
+          }
+        });
 
       // Send success response (this is where the session actually gets persisted)
     }
@@ -155,13 +168,14 @@ module.exports = {
       //   return exits.success({ deleted: deleted });
       // });
 
-      User.findOne({ username: inputs.owner }).exec((err, user) => {
+      User.findOne({ name: inputs.owner }).exec((err, user) => {
+        console.log(user);
         Event.create({
           title: inputs.title,
           groupsWithTime: inputs.groupsWithTime,
           startDate: inputs.startDate,
           description: inputs.description,
-          owner: user
+          owner: user.id
         }).exec((err, result) => {
           return exits.success({ result: result });
         });

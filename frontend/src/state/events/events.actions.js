@@ -24,10 +24,23 @@ export default {
   },
   addEvent (context, event) {
     return new Promise((resolve, reject) => {
-      console.log('INSIDE deleteEvent Action, eventObj:', event)
+      console.log('INSIDE addEvent Action, eventObj:', event)
       Vue.http
-        .post('/api/events/add', { params: event })
+        .post('/api/events/add', event)
         .then(() => resolve())
+        .catch(error => reject(error))
+    })
+  },
+  getEventsForUser (context, user) {
+    return new Promise((resolve, reject) => {
+      console.log('INSIDE getEventsForUser Action, eventObj:', event)
+      Vue.http
+        .get('/api/events/get', { params: { user } })
+        .then(async ({ body }) => {
+          console.log('body', body)
+          context.commit('SET_EVENTS', body)
+          resolve()
+        })
         .catch(error => reject(error))
     })
   }

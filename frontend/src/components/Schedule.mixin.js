@@ -11,7 +11,7 @@ export default {
   computed: {
     groups: {
       get () {
-        return this.$store.state.Groups.groups.groups
+        return this.$store.state.Groups.groups
       }
     }
   },
