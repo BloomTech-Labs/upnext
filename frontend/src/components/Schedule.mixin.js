@@ -1,10 +1,12 @@
 // import { mapMutations } from 'vuex'
 
 export default {
-  data: {
-    title: '',
-    startDate: '',
-    description: ''
+  data: function () {
+    return {
+      title: '',
+      startDate: '',
+      description: ''
+    }
   },
   computed: {
     groups: {

@@ -8,10 +8,10 @@
 
       <v-list>
 
-        <v-list-tile v-for="(group,index) in groups">
+        <v-list-tile :key="group.name" v-for="(group, index) in groups">
           <v-list-tile-content>
             <v-layout justify-space-between>
-              <v-flex class="ml-3 mt-3" xs4>{{index}})</v-flex>
+              <v-flex class="mt-3" xs4>{{index}})</v-flex>
               <v-flex class="ml-3 mt-3" xs4>{{group.name}}</v-flex>
               <v-flex class="ml-3 mt-3" xs4>{{group.time}}</v-flex>
             </v-layout>

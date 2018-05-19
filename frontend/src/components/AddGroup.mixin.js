@@ -1,17 +1,26 @@
-import { mapMutations } from 'vuex'
+import {
+  mapMutations
+} from 'vuex'
 
 export default {
-  data: {
-    name: '',
-    time: ''
+  data: function () {
+    return {
+      name: '',
+      time: ''
+    }
   },
   computed: {
     group () {
-      return { name: this.name, time: this.time }
+      return {
+        name: this.name,
+        time: this.time
+      }
     }
   },
   methods: {
-    ...mapMutations({ addGroup: 'ADD_GROUP' }),
+    ...mapMutations({
+      addGroup: 'ADD_GROUP'
+    }),
     addSingleGroup () {
       console.log('group', this.group)
       this.addGroup(this.group)

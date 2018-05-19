@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-container fluid grid-list-sm>
-      {{/*NO EVENTS TO SHOW YET*/}}
       <v-layout v-show="false" column>
         <v-flex>
           No events added yet...
@@ -15,11 +14,10 @@
 
       </v-layout>
 
-      {{/*SOME EVENTS TO SHOW*/}}
       <v-layout v-show="true" justify-center row wrap>
 
 
-        <v-flex v-for="event in events" xs4>
+        <v-flex :key="event.id" v-for="event in events" xs4>
           <v-card>
             <v-layout row>
               <v-card-title primary-title>

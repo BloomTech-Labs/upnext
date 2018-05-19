@@ -1,26 +1,30 @@
-import { mapActions } from 'vuex'
+import {
+  mapActions
+} from 'vuex'
 
 export default {
-  data: {
-    title: '',
-    startDate: '',
-    description: ''
+  data: function () {
+    return {
+      title: '',
+      startDate: '',
+      description: ''
+    }
   },
   computed: {
     groupsWithTime: {
-      get () {
+      get() {
         return this.$store.state.Groups.groups.groups
       }
     },
     owner: {
-      get () {
+      get() {
         return this.$store.state.User.user.name
       }
     }
   },
   methods: {
     ...mapActions(['addEvent']),
-    addSingleEvent () {
+    addSingleEvent() {
       const newEvent = {
         title: this.title,
         startDate: this.startDate,
