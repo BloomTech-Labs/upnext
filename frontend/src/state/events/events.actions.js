@@ -21,5 +21,14 @@ export default {
         .then(() => resolve())
         .catch(error => reject(error))
     })
+  },
+  addEvent (context, event) {
+    return new Promise((resolve, reject) => {
+      console.log('INSIDE deleteEvent Action, eventObj:', event)
+      Vue.http
+        .post('/api/events/add', { params: event })
+        .then(() => resolve())
+        .catch(error => reject(error))
+    })
   }
 }

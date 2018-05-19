@@ -37,31 +37,6 @@
         </v-flex>
 
 
-
-        <v-flex xs4>
-          <v-card>
-            <v-layout row>
-              <v-card-title primary-title>
-                  <h3 class="headline mb-0">Event 1 Title</h3>
-              </v-card-title>
-              <v-spacer></v-spacer>
-              <v-btn icon class="mt-2 mr-2" >
-                <v-icon medium >delete</v-icon>
-              </v-btn>
-            </v-layout>
-            <v-card-text>
-              <div class="text-sm-left">Details details details details...... Details details details details......Details details details details......</div>
-            </v-card-text>
-          </v-card>
-        </v-flex>
-
-
-
-
-
-
-
-
       </v-layout>
 
 

@@ -12,7 +12,9 @@ module.exports = {
     },
     isAdmin: {
       type: 'Boolean',
-      required: true
+      ///////////////////////////////////////////////////////////
+      required: false
+      /////////////////////////////////////////////////////////////
     },
     products: {
       collection: 'product',

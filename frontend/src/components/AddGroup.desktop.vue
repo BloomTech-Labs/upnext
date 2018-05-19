@@ -12,6 +12,7 @@
                   id="title"
                   name="input-1"
                   label="Group Name"
+                  v-model="name"
                 ></v-text-field>
               </v-flex>
               <v-flex xs4>
@@ -19,10 +20,11 @@
                   id="title"
                   name="input-1"
                   label="Time"
+                  v-model="time"
                 ></v-text-field>
               </v-flex>
 
-              <v-btn class="mt-3" color="yellow">add</v-btn>
+              <v-btn @click="addSingleGroup" class="mt-3" color="yellow">add</v-btn>
             </v-layout>
 
         </v-card>
@@ -31,5 +33,10 @@
 </template>
 
 <script>
-export default {};
+
+import AddGroupMixin from './AddGroup.mixin';
+
+export default {
+  mixins: [AddGroupMixin]
+};
 </script>

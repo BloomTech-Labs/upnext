@@ -21,6 +21,7 @@
                 id="title"
                 name="input-1"
                 label="Title"
+                v-model="title"
               ></v-text-field>
             </v-flex>
           </v-layout>
@@ -34,9 +35,25 @@
                 id="title"
                 name="input-1"
                 label="Date"
+                v-model="startDate"
               ></v-text-field>
             </v-flex>
           </v-layout>
+
+          <v-layout>
+            <v-flex xs4>
+            <v-subheader class="subheading mt-2">Event Description</v-subheader>
+            </v-flex>
+            <v-flex class="mr-3" xs8>
+              <v-text-field
+                id="title"
+                name="input-1"
+                label="Description"
+                v-model="description"
+              ></v-text-field>
+            </v-flex>
+          </v-layout>
+
         </v-card>
       </v-flex>
     </v-layout>
@@ -51,7 +68,7 @@
 
     <v-layout justify-center>
       <v-flex xs8>
-        <v-btn color="yellow darken-3">PROCEED TO CHECKOUT</v-btn>
+        <v-btn @click="addSingleEvent" color="yellow darken-3">PROCEED TO CHECKOUT</v-btn>
       </v-flex>
     </v-layout>
 
@@ -68,11 +85,13 @@
 <script>
 import AddGroup from './AddGroup.desktop';
 import Schedule from './Schedule.desktop';
+import EventAddMixin from './AdminEventCreate.mixin'
 
 export default {
   components: {
     AddGroup,
     Schedule
-  }
+  },
+  mixins: [EventAddMixin]
 };
 </script>

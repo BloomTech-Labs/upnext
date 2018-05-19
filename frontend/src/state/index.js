@@ -5,6 +5,7 @@ import product from './product/product.module'
 import products from './products/products.module'
 import basket from './basket/basket.module'
 import events from './events/events.module'
+import groups from './groups/groups.module'
 Vue.use(Vuex)
 
 const getCookie = name => {
@@ -18,7 +19,8 @@ export default new Vuex.Store({
     Product: product,
     Products: products,
     Basket: basket,
-    Events: events
+    Events: events,
+    Groups: groups
   },
 
   state: {

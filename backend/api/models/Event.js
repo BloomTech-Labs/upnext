@@ -57,8 +57,7 @@ module.exports = {
       via: 'events'
     },
     owner: {
-      model: 'user',
-      required: true
+      model: 'user'
     }
   }
 };
