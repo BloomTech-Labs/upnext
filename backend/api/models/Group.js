@@ -1,40 +1,21 @@
-/**
- * User.js
- *
- * A user who can log in to this application.
- */
-
 module.exports = {
   attributes: {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
-    title: {
+    name: {
       type: 'string',
-      description: 'Title of the event',
+      description: 'Name of group',
       required: true,
-      example: "Mother's Day Parade"
+      example: '1st Group'
     },
 
-    groups: {
-      collection: 'group',
-      via: 'parentEvent'
-    },
-
-    startDate: {
-      type: 'number',
-      description:
-        'JS timestamp represeting the start date and time of the event',
-      example: 1502844074211
-    },
-
-    description: {
+    time: {
       type: 'string',
+      description: 'Time when the group is up next',
       required: true,
-      description: 'A description of the event',
-      maxLength: 120,
-      example: 'This is a testing event, made only for testing and whatnot'
+      example: '4:00'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -48,10 +29,10 @@ module.exports = {
 
     subscribers: {
       collection: 'user',
-      via: 'subscribedEvents'
+      via: 'subscribedGroups'
     },
-    owner: {
-      model: 'user'
+    parentEvent: {
+      model: 'event'
     }
   }
 };

@@ -40,7 +40,6 @@ module.exports = {
 
       //const page = req.param('page');
       User.findOne({ name: inputs.user })
-        .populate('isAdmin')
         .populate('subscribedEvents')
         .populate('adminEvents')
         .exec((err, user) => {
@@ -94,7 +93,7 @@ module.exports = {
       // regardless of which database we're using)
 
       //const page = req.param('page');
-      console.log(inputs);
+      console.log('TURNS OUT YOU AN ADMIN');
 
       Event.destroy({ id: inputs.id }).exec((err, deleted) => {
         return exits.success({ deleted: deleted });
