@@ -12,7 +12,8 @@
 const users = [
   {
     name: 'Joe',
-    password: 'toasty'
+    password: 'toasty',
+    isAdmin: true
   },
   {
     name: 'Anna',
@@ -132,7 +133,8 @@ module.exports.bootstrap = function(cb) {
       if (!potentialUser) {
         User.create({
           name: user.name,
-          password: user.password
+          password: user.password,
+          isAdmin: user.isAdmin
         }).exec((error, user) => {
           sails.log.info('Created fixture user', user);
         });
@@ -149,7 +151,7 @@ module.exports.bootstrap = function(cb) {
     }).exec((error, event) => {
       if (error) sails.log.error(error);
 
-      sails.log.info('Created fixture event', product);
+      sails.log.info('Created fixture event', event);
     });
   });
 

@@ -25,8 +25,7 @@ export default {
         title: this.title,
         startDate: this.startDate,
         description: this.description,
-        groupsWithTime: groupObj,
-        owner: window.localStorage.getItem('username')
+        groupsWithTime: groupObj
       }
       console.log('inside addEvent', newEvent)
       this.addEvent(newEvent).then(() => {

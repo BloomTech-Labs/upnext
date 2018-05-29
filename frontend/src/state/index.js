@@ -26,12 +26,17 @@ export default new Vuex.Store({
   state: {
     locale: 'en',
     isUserAuthenticated: !!getCookie('user'),
+    isAdmin: !!getCookie('isAdmin'),
     isHelpVisible: false
   },
 
   mutations: {
     SET_IS_USER_AUTHENTICATED (state, isUserAuthenticated) {
       state.isUserAuthenticated = isUserAuthenticated
+    },
+
+    SET_IS_ADMIN (state, isAdmin) {
+      state.isAdmin = isAdmin
     },
 
     SET_LOCALE (state, locale) {

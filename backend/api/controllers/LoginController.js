@@ -13,10 +13,14 @@ module.exports = {
         sails.log.info('User logged in', user);
 
         const encryptedId = CryptographyService.encrypt(user.id);
+        let encryptedAdmin = null;
+        if (user.isAdmin) {
+          encryptedAdmin = CryptographyService.encrypt(user.isAdmin);
+        }
 
         return res.json({
-          token: TokenService.issue({ id: user.id, isAdmin: user.isAdmin }),
-          cookie: encryptedId
+          token: TokenService.issue({ id: user.id }),
+          cookies: { user: encryptedId, isAdmin: encryptedAdmin }
         });
       });
     });

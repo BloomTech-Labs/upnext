@@ -31,11 +31,18 @@ export default {
 
   methods: {
     async login () {
-      let { token, cookie } = await this.$store.dispatch('loginUser', this.user)
+      let { token, cookies } = await this.$store.dispatch(
+        'loginUser',
+        this.user
+      )
 
       window.localStorage.setItem('token', token)
       window.localStorage.setItem('username', this.name)
-      this.setCookie('user', cookie, 3600 * 24 * 7)
+      this.setCookie('user', cookies.user, 3600 * 24 * 7)
+      if (cookies.isAdmin) {
+        this.setCookie('isAdmin', cookies.isAdmin, 3600 * 24 * 7)
+      }
+      this.setIsAdmin(true)
       this.setIsUserAuthenticated(true)
 
       this.$router.push({ name: 'AdminEventCreate' })
@@ -51,7 +58,8 @@ export default {
     },
 
     ...mapMutations({
-      setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'
+      setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED',
+      setIsAdmin: 'SET_IS_ADMIN'
     })
   }
 }

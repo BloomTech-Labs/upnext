@@ -205,6 +205,7 @@ export default {
 
     logout() {
       this.deleteCookie('user');
+      this.deleteCookie('isAdmin')
       this.isUserAuthenticated = false;
       localStorage.clear();
 

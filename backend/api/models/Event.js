@@ -23,10 +23,10 @@ module.exports = {
     },
 
     startDate: {
-      type: 'number',
+      type: 'string',
       description:
         'JS timestamp represeting the start date and time of the event',
-      example: 1502844074211
+      example: '3:00'
     },
 
     description: {

@@ -11,7 +11,7 @@ module.exports = {
       required: true
     },
     isAdmin: {
-      type: 'Boolean',
+      type: 'boolean',
       ///////////////////////////////////////////////////////////
       required: false
       /////////////////////////////////////////////////////////////
@@ -96,11 +96,13 @@ without necessarily having a billing card.`
     }
   },
 
-  customToJSON() {
-    //let user = this.toObject();
-    //delete user.password;
+  customToJSON: function() {
+    // let user = this.toObject();
+    // delete user.password;
 
     return _.omit(this, ['password']);
+    // return user;
+    // return this.toObject();
   },
 
   beforeCreate: (user, next) => {

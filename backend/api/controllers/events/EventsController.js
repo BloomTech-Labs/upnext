@@ -116,7 +116,7 @@ module.exports = {
       },
       startDate: {
         description: 'Date of event',
-        type: 'number',
+        type: 'string',
         required: true
       },
       groupsWithTime: {
@@ -126,11 +126,6 @@ module.exports = {
       },
       description: {
         description: 'Description of event',
-        type: 'string',
-        required: true
-      },
-      owner: {
-        description: 'Admin/creator of event',
         type: 'string',
         required: true
       }
@@ -144,7 +139,7 @@ module.exports = {
       badCombo: {
         description: `The provided email and password combination does not
         match any user in the database.`,
-        responseType: 'unauthorized'
+        responseType: 'badRequest'
         // ^This uses the custom `unauthorized` response located in `api/responses/unauthorized.js`.
         // To customize the generic "unauthorized" response across this entire app, change that file
         // (see http://sailsjs.com/anatomy/api/responses/unauthorized-js).
@@ -161,26 +156,48 @@ module.exports = {
       // regardless of which database we're using)
 
       //const page = req.param('page');
-      console.log(inputs);
+      console.log('INPUTS', inputs);
 
       // Event.destroy({ id: inputs.id }).exec((err, deleted) => {
       //   return exits.success({ deleted: deleted });
       // });
+      const user = CryptographyService.decrypt(this.req.cookies.user);
+      let isAdmin = null;
+      if (this.req.cookies.isAdmin) {
+        isAdmin = CryptographyService.decrypt(this.req.cookies.isAdmin);
+      }
 
-      User.findOne({ name: inputs.owner }).exec((err, user) => {
-        console.log(user);
-        Event.create({
-          title: inputs.title,
-          groupsWithTime: inputs.groupsWithTime,
-          startDate: inputs.startDate,
-          description: inputs.description,
-          owner: user.id
-        }).exec((err, result) => {
-          return exits.success({ result: result });
+      if (!isAdmin) return exits.badCombo();
+
+      // Groups that come in through inputs need to be added to DB
+      // Add the event without groups
+      // Attach groups to the event
+      // Add event to user adminEvents property
+
+      User.findOne({ id: user }).exec(async (err, user) => {
+        console.log('USER', user);
+        let tempGroups = [];
+        let groupIds = [];
+
+        tempGroups = await Group.createEach(inputs.groupsWithTime).fetch();
+
+        groupIds = tempGroups.map(group => {
+          return group.id;
         });
-      });
 
-      // Send success response (this is where the session actually gets persisted)
+        console.log(tempGroups);
+        console.log(groupIds);
+
+        const newEvent = await Event.create({
+          title: inputs.title,
+          startDate: inputs.startDate,
+          description: inputs.description
+        }).fetch();
+        await Event.addToCollection(newEvent.id, 'groups', groupIds);
+        await Event.update({ id: newEvent.id }).set({ owner: user.id });
+
+        return exits.success({ event: newEvent });
+      });
     }
   }
 };
