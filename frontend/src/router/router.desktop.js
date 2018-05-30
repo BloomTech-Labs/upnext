@@ -14,6 +14,13 @@ export default new Router({
       }
     },
     {
+      path: '/viewevents',
+      name: 'ViewEvents',
+      component: resolve => {
+        require(['./../components/ViewEvents.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '/admincreate',
       name: 'AdminEventCreate',
       component: resolve => {

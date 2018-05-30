@@ -28,11 +28,12 @@ export default {
         groupsWithTime: groupObj
       }
       console.log('inside addEvent', newEvent)
-      this.addEvent(newEvent).then(() => {
+      this.addEvent(newEvent).then(event => {
         console.log('SUCCESSFUL ADDITION')
         this.title = ''
         this.startDate = ''
         this.description = ''
+        console.log(event)
       })
     }
   }

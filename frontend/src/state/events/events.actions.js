@@ -4,11 +4,11 @@ export default {
   getEvents (context) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .get('/api/events/get')
+        .get('http://localhost:1337/api/event')
         .then(async ({ body }) => {
           console.log('body', body)
           context.commit('SET_EVENTS', body)
-          resolve()
+          resolve(body)
         })
         .catch(error => reject(error))
     })
@@ -27,7 +27,7 @@ export default {
       console.log('INSIDE addEvent Action, eventObj:', event)
       Vue.http
         .post('http://localhost:1337/api/events/add', event)
-        .then(() => resolve())
+        .then(() => resolve(event))
         .catch(error => reject(error))
     })
   },

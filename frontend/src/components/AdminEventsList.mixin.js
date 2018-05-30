@@ -10,7 +10,7 @@ export default {
   computed: {
     events: {
       get () {
-        return this.$store.state.Events.events.events
+        return this.$store.state.Events.events
       }
     }
   },

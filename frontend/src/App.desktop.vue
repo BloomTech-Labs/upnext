@@ -1,9 +1,11 @@
 <template>
   <div id="app">
 
-
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
-    <router-view ></router-view>
+    <v-app>
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+      <Toolbar></Toolbar>
+      <router-view ></router-view>
+    </v-app>
 
 
 
@@ -18,12 +20,15 @@ import AppMixin from './App.mixin'
 
 const HelpIndex = () => import('./components/help/Help.desktop')
 const Landing = () => import('./components/Landing.desktop')
+const Toolbar = () => import('./components/Toolbar.desktop')
+
 export default {
   mixins: [AppMixin],
 
   components: {
     HelpIndex,
-    Landing
+    Landing,
+    Toolbar
   },
 
   data: () => ({

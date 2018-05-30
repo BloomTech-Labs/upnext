@@ -1,18 +1,17 @@
 <template>
-  <v-app dark>
+  <v-app light>
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="500px">
       <v-btn
       slot="activator"
       text="sign up"
-      color="blue"
-      style="overflow:hidden; "
-      dark>
+      style=""
+      light>
       Sign Up
       </v-btn>
       <v-card>
         <v-card-title>
-          <span class="headline">Create Account</span>
+          <span class="headline">Sign Up!</span>
         </v-card-title>
         <v-card-text>
           <v-container grid-list-md>
@@ -38,7 +37,7 @@
           <v-btn
           color="blue darken-1"
           app
-          flat @click.native="dialog = false">
+          flat @click.native=" dialog = false">
           Close
           </v-btn>
           <v-btn
@@ -92,3 +91,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.target {
+  overflow: hidden;
+  background-color: #051760;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  padding: 10px;
+  margin: 10px;
+}
+</style>
