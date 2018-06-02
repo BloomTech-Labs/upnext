@@ -57,11 +57,25 @@ export default {
         password: this.password
       }
       const result = await this.$store.dispatch('postUser', user)
-      console.log(result)
-    }
-  },
-  ...mapMutations({
-    setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'
-  })
-  // ...mapActions(['postUser'])
+      const { token, cookie } = result
+
+      window.localStorage.setItem('token', token)
+      window.localStorage.setItem('email', this.email)
+      this.setCookie('user', cookie, 3600 * 24 * 7)
+      this.setIsUserAuthenticated(true)
+
+      this.$router.push({name: 'ViewEvents'})
+    },
+
+    setCookie (name, value, seconds) {
+      const expires = seconds
+      ? '; expires=' + new Date(new Date().getTime() + seconds * 1000).toGMTString()
+      : ''
+      document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/'
+    },
+
+    ...mapMutations({
+      setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'
+    })
+  }
 }
