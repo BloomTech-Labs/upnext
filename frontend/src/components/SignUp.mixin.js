@@ -1,7 +1,5 @@
 import {
-  mapMutations,
-  mapActions,
-  context
+  mapMutations
 } from 'vuex'
 
 export default {
@@ -54,15 +52,16 @@ export default {
   methods: {
     async signup () {
       const user = {
-        email: this.email, 
-        fullName: this.fullName, 
+        email: this.email,
+        fullName: this.fullName,
         password: this.password
       }
-      const result = await this.postUser(context, user)
+      const result = await this.$store.dispatch('postUser', user)
+      console.log(result)
     }
   },
   ...mapMutations({
     setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'
-  }),
-  ...mapActions(['postUser'])
+  })
+  // ...mapActions(['postUser'])
 }

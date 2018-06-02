@@ -25,7 +25,7 @@ export default {
   mixins: [AppMixin],
 
   components: {
-    Landing,
+      Landing,
     Toolbar
   },
 
