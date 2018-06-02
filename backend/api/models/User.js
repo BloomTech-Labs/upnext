@@ -2,7 +2,11 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   attributes: {
-    name: {
+    fullName: {
+      type: 'string',
+      required: true
+    },
+    email: {
       type: 'string',
       required: true
     },
@@ -74,14 +78,6 @@ without necessarily having a billing card.`
 
     //////////////////////////////////////////////////
 
-    products: {
-      collection: 'product',
-      via: 'user'
-    },
-    baskets: {
-      collection: 'basket',
-      via: 'user'
-    },
     subscribedEvents: {
       collection: 'event',
       via: 'subscribers'

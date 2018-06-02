@@ -47,16 +47,12 @@ module.exports.policies = {
   // feed : ['isNiceToAnimals', 'hasRabbitFood']
   // }
 
-  RegisterController: {
+  SignUpController: {
     '*': true
   },
 
   LoginController: {
     '*': true
-  },
-
-  ProductController: {
-    '*': 'isAuthorized'
   },
 
   'events/EventsController': {
@@ -67,19 +63,4 @@ module.exports.policies = {
   //   '*': 'isAdmin'
   // },
 
-  'user/ProductsController': {
-    '*': 'isAuthorized'
-  },
-
-  'user/ProductController': {
-    '*': 'isAuthorized'
-  },
-
-  ProductsController: {
-    '*': true
-  },
-
-  'user/shop/BasketController': {
-    '*': 'isAuthorized'
-  }
 };

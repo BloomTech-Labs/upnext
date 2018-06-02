@@ -19,12 +19,6 @@ export default {
       set (isUserAuthenticated) {
         this.$store.commit('SET_IS_USER_AUTHENTICATED', isUserAuthenticated)
       }
-    },
-
-    basket: {
-      get () {
-        return this.$store.state.Basket.basket
-      }
     }
   },
 

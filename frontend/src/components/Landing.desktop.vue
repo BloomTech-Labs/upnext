@@ -89,7 +89,7 @@
         <v-layout column align-center justify-center>
           <div class="headline mb-3 text-xs-center"><strong>Up<span style="color: #cae325">Next</span></strong> makes it possible for busy professionals to attend without giving up their entire day.  </div>
           <div class="mb-4">Busy attendees can show up just in time for a certain portion of an event without the risk of missing it.</div>
-          <v-btn style="background-color: #051760; text-shadow: 1px 1px 2px black;" dark large href="#" @click.prevent="">
+          <v-btn style="background-color: #051760; text-shadow: 1px 1px 2px black;" dark large href="#" @click.prevent="nothing">
             Schedule an event
           </v-btn>
         </v-layout>
@@ -172,6 +172,9 @@ export default {
     },
     deleteCookie(cookie) {
       document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;`
+    },
+    nothing() {
+      console.log('nothing')
     }
   },
 
@@ -181,12 +184,9 @@ export default {
       console.log('new image height is ' + (this.pageHeight - offset))
       return this.pageHeight - offset
     }
-  },
-
-  mounted: function() {
-    this.calculateHeight()
   }
 }
+
 </script>
 
 <style scoped>

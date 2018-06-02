@@ -61,28 +61,13 @@
             method: () => {
               this.$router.push({name: 'Login'})
             }
-          })
-        } else {
-          actions.push({
-            name: this.t('app.mixin.shop'),
-            method: () => {
-              this.$router.push({name: 'Shop'})
-            }
-          })
-
-          actions.push({
-            name: this.t('app.mixin.basket'),
-            method: () => {
-              this.$router.push({name: 'Basket'})
-            }
-          })
-
-          actions.push({
-            name: this.t('app.mixin.products'),
-            method: () => {
-              this.$router.push({name: 'Products'})
-            }
-          })
+          }),
+        // } else {
+        //   actions.push({
+        //     name: this.t('app.mixin.shop'),
+        //     method: () => {
+        //       this.$router.push({name: 'Shop'})
+        // 
 
           actions.push({
             name: 'Logout',

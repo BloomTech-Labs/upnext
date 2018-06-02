@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './user/user.module'
-import product from './product/product.module'
-import products from './products/products.module'
-import basket from './basket/basket.module'
 
 Vue.use(Vuex)
 
@@ -14,10 +11,7 @@ const getCookie = name => {
 
 export default new Vuex.Store({
   modules: {
-    User: user,
-    Product: product,
-    Products: products,
-    Basket: basket
+    User: user
   },
 
   state: {

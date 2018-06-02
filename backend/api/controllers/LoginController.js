@@ -1,8 +1,8 @@
 module.exports = {
   post: (req, res) => {
-    const { name, password } = req.allParams();
+    const { email, password } = req.allParams();
 
-    User.findOne({ name }).exec((error, user) => {
+    User.findOne({ email }).exec((error, user) => {
       if (error) return res.serverError(error);
       if (!user) return res.forbidden();
 

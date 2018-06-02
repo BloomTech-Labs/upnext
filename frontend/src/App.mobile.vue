@@ -48,41 +48,6 @@
       setActions () {
         let actions = []
 
-        if (!this.isUserAuthenticated) {
-          actions.push({
-            name: this.t('app.mixin.register'),
-            method: () => {
-              this.$router.push({name: 'Register'})
-            }
-          })
-
-          actions.push({
-            name: this.t('app.mixin.login'),
-            method: () => {
-              this.$router.push({name: 'Login'})
-            }
-          })
-        } else {
-          actions.push({
-            name: this.t('app.mixin.shop'),
-            method: () => {
-              this.$router.push({name: 'Shop'})
-            }
-          })
-
-          actions.push({
-            name: this.t('app.mixin.basket'),
-            method: () => {
-              this.$router.push({name: 'Basket'})
-            }
-          })
-
-          actions.push({
-            name: this.t('app.mixin.products'),
-            method: () => {
-              this.$router.push({name: 'Products'})
-            }
-          })
 
           actions.push({
             name: 'Logout',
@@ -100,8 +65,6 @@
               this.$router.push({name: 'Home'})
             }
           })
-        }
-
         actions.push({
           name: 'Change language',
           method: () => {

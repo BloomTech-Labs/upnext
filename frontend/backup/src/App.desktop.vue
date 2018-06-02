@@ -12,7 +12,7 @@
       <b-navbar-brand :to="{ name: 'Home'}">
         <span>Product paradisess</span>
       </b-navbar-brand>
-
+<!--
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
           <b-nav-item :to="{ name: 'Home'}">{{ t('app.mixin.home') }}</b-nav-item>
@@ -32,7 +32,7 @@
             <b-dropdown-item @click="setLocale('de')">Deutsch</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
-      </b-collapse>
+      </b-collapse>-->
     </b-navbar>
     <div class="container">
       <router-view class="mt-4"></router-view>

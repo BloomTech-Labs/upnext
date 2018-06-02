@@ -1,7 +1,9 @@
 export default {
   user: {
     id: '',
-    name: '',
-    password: ''
+    email: '',
+    password: '',
+    fullName: '',
+    isAdmin: false
   }
 }

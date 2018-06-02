@@ -40,13 +40,12 @@ module.exports.routes = {
 
   'post /api/help': 'help/Help.postHelp',
 
-  'post /api/register/post': 'Register.post',
+  'post /api/signup/post': 'SignUpController.post',
 
   'post /api/login/post': 'LoginController.post',
 
   'get /api/user/get': 'user/UserController.get',
 
-  'get /api/products/get': 'products/ProductsController.getProducts',
 
   /***************************************************************************/
   /**                                ADDED                                  **/
@@ -61,25 +60,6 @@ module.exports.routes = {
   /***************************************************************************/
   /**                                ADDED                                  **/
   /***************************************************************************/
-
-  'post /api/user/products/product/post':
-    'user/products/product/ProductController.postProduct',
-
-  'get /api/user/products/product/get':
-    'user/products/product/ProductController.getProduct',
-
-  'patch /api/user/products/product/patch':
-    'user/products/product/ProductController.patchProduct',
-
-  'delete /api/user/products/product/delete':
-    'user/products/product/ProductController.deleteProduct',
-
-  'get /api/user/products/getProductsByUser':
-    'user/products/ProductsController.getProductsByUser',
-
-  'get /api/user/products/get': 'user/products/ProductsController.getProducts',
-
-  'post /api/user/shop/basket/post': 'user/shop/BasketController.postBasket'
 
   /***************************************************************************
    *                                                                          *

@@ -108,10 +108,6 @@ export default {
       return this.pageHeight - offset
     }
   },
-
-  mounted: function() {
-    this.calculateHeight()
-  }
 }
 </script>
 

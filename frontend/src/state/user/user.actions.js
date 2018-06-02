@@ -13,23 +13,24 @@ export default {
     })
   },
 
-  postUser (context, {name, password}) {
+  postUser (context, {email, fullName, password}) {
+    console.log('ABOUT TO MAKE A NEW USER')
     return new Promise((resolve, reject) => {
-      Vue.http
-        .post('/api/register/post', {name, password})
-        .then(() => {
-          context.commit('RESET_USER')
-          resolve()
-        })
+      Vue.http.post('/api/signup/post', {email, fullName, password})
+      .then((response) => {
+        console.log('INSIDE OF THE HTTP CALL')
+        context.commit('RESET_USER')
+        resolve(response)
+      })
         .catch(error => reject(error))
     })
   },
 
-  loginUser (context, {name, password}) {
+  loginUser (context, {email, password}) {
     return new Promise((resolve, reject) => {
       Vue.http
         .post('/api/login/post', {
-          name,
+          email,
           password
         })
         .then(response => {

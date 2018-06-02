@@ -18,7 +18,6 @@ import * as sailsIo from 'sails.io.js'
 import { mapMutations } from 'vuex'
 import AppMixin from './App.mixin'
 
-const HelpIndex = () => import('./components/help/Help.desktop')
 const Landing = () => import('./components/Landing.desktop')
 const Toolbar = () => import('./components/Toolbar.desktop')
 
@@ -26,7 +25,6 @@ export default {
   mixins: [AppMixin],
 
   components: {
-    HelpIndex,
     Landing,
     Toolbar
   },
