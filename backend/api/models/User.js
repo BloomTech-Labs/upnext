@@ -20,9 +20,12 @@ module.exports = {
     isAdmin: {
       description: 'Boolean identifying whether this user has paid to create an event, which grants additional options in terms of event planning.',
       type: 'boolean',
-      ///////////////////////////////////////////////////////////
       required: false
-      /////////////////////////////////////////////////////////////
+    },
+    phone: {
+      description: 'Phone number on which user can receive text notifications',
+      type: 'string',
+      required: false
     },
     receiveTexts: {
       description: 'A boolean which identifies whether a user has signed up to receive text notifications',
