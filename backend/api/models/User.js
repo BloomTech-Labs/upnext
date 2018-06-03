@@ -3,22 +3,36 @@ const bcrypt = require('bcryptjs');
 module.exports = {
   attributes: {
     fullName: {
+      description: 'The full name of the user',
       type: 'string',
       required: true
     },
     email: {
+      description: 'The user\'s email address',
       type: 'string',
       required: true
     },
     password: {
+      description: 'The password used to sign in to the user\'s account',
       type: 'string',
       required: true
     },
     isAdmin: {
+      description: 'Boolean identifying whether this user has paid to create an event, which grants additional options in terms of event planning.',
       type: 'boolean',
       ///////////////////////////////////////////////////////////
       required: false
       /////////////////////////////////////////////////////////////
+    },
+    receiveTexts: {
+      description: 'A boolean which identifies whether a user has signed up to receive text notifications',
+      type: bool,
+      required: false
+    },
+    receiveEmails: {
+      description: 'A boolean which identifies whether a user has signed up to receive email notifications',
+      type: bool,
+      required: false
     },
 
     ///////////////////////////////////////////////////////////////////////
