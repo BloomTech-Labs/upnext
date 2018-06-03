@@ -3,9 +3,9 @@ module.exports = {
     const {
       email,
       fullName,
-      password
+      password,
+      isAdmin
     } = req.allParams();
-    const isAdmin = false;
 
     const user = await User.create({
       email,
@@ -16,7 +16,7 @@ module.exports = {
     // User.create({ name, password, isAdmin }).exec((error, user) => {
     //   if (error) return res.serverError(error);
 
-    //   sails.log.info('Created user', user);
+    //   sails  .log.info('Created user', user);
     //   return res.json(user);
     //   //if (user) return res.ok()
     // });

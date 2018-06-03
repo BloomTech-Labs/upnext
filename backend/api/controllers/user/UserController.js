@@ -8,5 +8,10 @@ module.exports = {
         if (error) return res.serverError(error)
         if (user) return res.json(user)
       })
+  },
+
+  put: async (req, res) => {
+    const user = await User.findOne({ id: CryptographyService.decrypt(req.cookies.user)}).fetch()
+
   }
 }
