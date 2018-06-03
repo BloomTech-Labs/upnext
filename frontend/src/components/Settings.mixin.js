@@ -42,5 +42,19 @@ export default {
         this.$store.commit('SET_TEXT_NOTIFICATIONS', bool)
       }
     }
+  },
+
+  methods: {
+    async updateSettings() {
+      const preferences = {
+        email: this.email,
+        phone: this.phone,
+        receiveEmails: this.receiveEmails,
+        receiveTexts: this.receiveTexts
+      }
+
+      const result = await this.$store.dispatch('updateSettings', preferences)
+      console.log(result.body)
+    }
   }
 }

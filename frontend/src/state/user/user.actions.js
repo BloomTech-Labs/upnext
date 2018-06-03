@@ -42,5 +42,22 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+
+  updateSettings (context, {email, phone, receiveTexts, receiveEmails}) {
+    return new Promise((resolve, reject) => {
+      Vue.http
+        .put('/api/user/put', {
+          email,
+          phone,
+          receiveEmails,
+          receiveTexts
+        })
+        .then(response => {
+          context.commit('SET_RECEIVED_RESPONSE', true)
+          resolve(response.body)
+        })
+        .catch(err => reject(err))
+    })
   }
 }
