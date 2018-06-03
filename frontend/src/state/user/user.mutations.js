@@ -22,5 +22,18 @@ export default {
   RESET_USER (state) {
     state.user.name = ''
     state.user.password = ''
+  },
+
+  SET_USER_PHONE (state, phone) {
+    console.log('The phone number has just been set')
+    state.user.phone = phone
+  },
+
+  SET_EMAIL_NOTIFICATIONS (state, bool) {
+    state.user.receiveEmails = bool
+  },
+
+  SET_TEXT_NOTIFICATIONS (state, bool) {
+    state.user.receiveTexts = bool
   }
 }

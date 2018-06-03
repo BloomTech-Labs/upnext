@@ -4,6 +4,9 @@ export default {
     email: '',
     password: '',
     fullName: '',
-    isAdmin: false
+    isAdmin: false,
+    phone: '',
+    receiveEmails: false,
+    receiveTexts: false
   }
 }
