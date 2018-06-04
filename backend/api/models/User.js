@@ -29,12 +29,12 @@ module.exports = {
     },
     receiveTexts: {
       description: 'A boolean which identifies whether a user has signed up to receive text notifications',
-      type: bool,
+      type: 'boolean',
       required: false
     },
     receiveEmails: {
       description: 'A boolean which identifies whether a user has signed up to receive email notifications',
-      type: bool,
+      type: 'boolean',
       required: false
     },
 
