@@ -29,8 +29,8 @@ export default {
       get () {
         return this.$store.state.User.user.receiveEmails
       },
-      set (bool) {
-        this.$store.commit('SET_EMAIL_NOTIFICATIONS', bool)
+      set (receiveEmails) {
+        this.$store.commit('SET_EMAIL_NOTIFICATIONS', receiveEmails)
       }
     },
 
@@ -38,14 +38,14 @@ export default {
       get () {
         return this.$store.state.User.user.receiveTexts
       },
-      set (bool) {
-        this.$store.commit('SET_TEXT_NOTIFICATIONS', bool)
+      set (receiveTexts) {
+        this.$store.commit('SET_TEXT_NOTIFICATIONS', receiveTexts)
       }
     }
   },
 
   methods: {
-    async updateSettings() {
+    async updateSettings () {
       const preferences = {
         email: this.email,
         phone: this.phone,
