@@ -21,6 +21,13 @@ export default new Router({
       }
     },
     {
+      path: '/settings',
+      name: 'Settings',
+      component: resolve => {
+        require(['./../components/settings/Settings.vue'])
+      }
+    },
+    {
       path: '/login',
       name: 'Login',
       component: resolve => {

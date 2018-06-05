@@ -42,6 +42,13 @@ export default new Router({
       }
     },
     {
+      path: '/settings',
+      name: 'Settings',
+      component: resolve => {
+        require(['./../components/settings/Settings.vue'], resolve)
+      }
+    },
+    {
       path: '/events',
       name: 'TestEvents',
       component: resolve => {

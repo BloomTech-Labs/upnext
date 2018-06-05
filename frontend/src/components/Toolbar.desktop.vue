@@ -1,11 +1,8 @@
 <template>
-    <v-toolbar
-      style="z-index: 1; backgroundColor: 	#e5dcd6"
-      fixed
-    >
+    <v-toolbar class="toolbar" fixed>
 
       <v-toolbar-items>
-        <SignUpModal style="backgroundColor: #e5dcd6" class="ml-4"></SignUpModal>
+        <SignUpModal class="ml-4 sign-up"></SignUpModal>
       </v-toolbar-items>
 
      <v-spacer></v-spacer>
@@ -25,7 +22,7 @@
      <v-spacer></v-spacer>
 
 
-     <v-content style="textAlign: center; fontSize: 50px; fontWeight: bold; color: white; textShadow: 1px 2px 2px black"> Up<span style="color: #C8E123; textShadow: 1px 2px 2px black">Next</span></v-content>
+     <v-content class="title-up"> Up<span class="title-next">Next</span></v-content>
 
 
 
@@ -120,5 +117,24 @@ export default {
 .social-icon {
   font-size: 21px;
   color: white;
+}
+.toolbar {
+  position: relative; 
+  background-color: 	#e5dcd6
+}
+
+.sign-up {
+  background-color: #e5dcd6
+}
+.title-up {
+  text-align: center; 
+  font-size: 50px; 
+  font-weight: bold; 
+  color: white; 
+  text-shadow: 1px 2px 2px black;
+}
+.title-next {
+  color: #C8E123;
+  text-shadow: 1px 2px 2px black;
 }
 </style>

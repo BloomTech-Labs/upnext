@@ -33,7 +33,6 @@ export default {
         this.$store.commit('SET_EMAIL_NOTIFICATIONS', receiveEmails)
       }
     },
-
     receiveTexts: {
       get () {
         return this.$store.state.User.user.receiveTexts
@@ -41,13 +40,20 @@ export default {
       set (receiveTexts) {
         this.$store.commit('SET_TEXT_NOTIFICATIONS', receiveTexts)
       }
-    }
+    },
+    showAccountSettings: true,
+    showBillingSettings: false,
+    showNotificationSettings: false
   },
 
   methods: {
     async updateSettings () {
       const preferences = {
         email: this.email,
+        emailRules: [
+          v => !!v || 'E-mail is required',
+          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+        ],
         phone: this.phone,
         receiveEmails: this.receiveEmails,
         receiveTexts: this.receiveTexts
