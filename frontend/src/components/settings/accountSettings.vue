@@ -17,8 +17,8 @@
       <v-card-title>Change your password</v-card-title>
       <v-text-field label="Old Password" v-model="oldPassword"></v-text-field>
       <v-text-field label="New Password" v-model="newPassword"></v-text-field>
-      <v-text-field label="Confirm Password" v-model="confirmPassword"></v-text-field>
-      <v-btn @click="submit" :disabled="!valid">
+      <v-text-field label="Confirm Password" :rules="confirmPasswordRules" v-model="confirmPassword"></v-text-field>
+      <v-btn @click="updateSettings" :disabled="!valid">
         submit
       </v-btn>
       <v-btn @click="clear">clear</v-btn>

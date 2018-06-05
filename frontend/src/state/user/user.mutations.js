@@ -24,9 +24,9 @@ export default {
     state.user.password = ''
   },
 
-  SET_USER_PHONE (state, phone) {
+  SET_USER_PHONE (state, phoneNumber) {
     console.log('The phone number has just been set')
-    state.user.phone = phone
+    state.user.phoneNumber = phoneNumber
   },
 
   SET_EMAIL_NOTIFICATIONS (state, bool) {

@@ -5,7 +5,7 @@ export default {
     password: '',
     fullName: '',
     isAdmin: false,
-    phone: '',
+    phoneNumber: '',
     receiveEmails: false,
     receiveTexts: false
   }

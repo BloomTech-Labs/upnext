@@ -44,12 +44,14 @@ export default {
     })
   },
 
-  updateSettings (context, {email, phone, receiveTexts, receiveEmails}) {
+  updateSettings (context, {email, phoneNumber, receiveTexts, receiveEmails, password}) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .put('/api/user/put', {
+        .put('/api/user/patch', {
+          id: window.localStorage.user,
           email,
-          phone,
+          password,
+          phoneNumber,
           receiveEmails,
           receiveTexts
         })

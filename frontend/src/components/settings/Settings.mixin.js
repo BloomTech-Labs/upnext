@@ -16,12 +16,12 @@ export default {
       }
     },
 
-    phone: {
+    phoneNumber: {
       get () {
         return this.$store.state.User.user.phone
       },
-      set (phone) {
-        this.$store.commit('SET_USER_PHONE', phone)
+      set (phoneNumber) {
+        this.$store.commit('SET_USER_PHONE_NUMBER', phoneNumber)
       }
     },
 
@@ -43,24 +43,25 @@ export default {
     },
     showAccountSettings: true,
     showBillingSettings: false,
-    showNotificationSettings: false
+    oldPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+    confirmPasswordRules: (v) => v === this.newPassword || 'Passwords do not match'
   },
 
   methods: {
     async updateSettings () {
       const preferences = {
-        email: this.email,
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-        ],
-        phone: this.phone,
+        phoneNumber: this.phoneNumber,
         receiveEmails: this.receiveEmails,
         receiveTexts: this.receiveTexts
       }
 
       const result = await this.$store.dispatch('updateSettings', preferences)
-      console.log(result.body)
+      console.log(result)
+    },
+    goToEvents () {
+      this.$router.push('viewevents')
     }
   }
 }

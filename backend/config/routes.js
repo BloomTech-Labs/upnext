@@ -38,14 +38,13 @@ module.exports.routes = {
     skipRegex: /^\/api\/.*$/
   },
 
-  'post /api/help': 'help/Help.postHelp',
-
   'post /api/signup/post': 'SignUpController.post',
 
   'post /api/login/post': 'LoginController.post',
 
   'get /api/user/get': 'user/UserController.get',
 
+  'patch /api/user/patch': 'user/UserController.put',
 
   /***************************************************************************/
   /**                                ADDED                                  **/
