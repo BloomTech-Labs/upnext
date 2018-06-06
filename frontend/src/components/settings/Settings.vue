@@ -6,8 +6,8 @@
         <v-flex class="text-xs-center d-flex">
           <!-- SIDEBAR COMPONENT -->
           <v-layout>
-            <v-flex xs4 class="pt-0">
-              <v-navigation-drawer permanent light class="pl-0 sidebar mt-2">
+            <v-flex class="pt-0 " >
+              <v-navigation-drawer permanent light class="pl-0 sidebar mt-2 mr-4">
 
                 <v-list dense class="pt-0">
                   <v-list-tile>
@@ -54,14 +54,7 @@
                     </v-list-tile-action>
                   </v-list-tile>
                 </v-list>
-              </v-navigation-drawer>
-            </v-flex>
-          </v-layout>
-          <!-- END SIDEBAR COMPONENT -->
-          <!-- USER INFO DISPLAY COMPONENT -->
-          <v-layout>
-            <v-flex>
-              <v-card class="account-details" v-if="showAccountSettings">
+                <v-card class="account-details" v-if="showAccountSettings">
                 <v-card-title>
                   Contact Info:
                 </v-card-title>
@@ -85,10 +78,13 @@
                   <span class="setting-heading">Email alerts:</span> {{receiveEmails}}
                 </v-card-text>
               </v-card>
+              </v-navigation-drawer>
+
+              
             </v-flex>
           </v-layout>
           <!--END ACCOUNT INFO DISPLAY -->
-          <v-layout>
+          <v-layout class="account-settings-container">
             <v-flex xs12>
               <main>
                 <template v-if="showAccountSettings">
@@ -122,24 +118,25 @@ export default {
   text-shadow: 1px 2px 2px black;
 }
 
-.title-container {
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 1px 2px 2px black;
-}
 .sidebar {
   position: absolute;
-  max-height: 45%;
+  right: 50%;
+  max-width: 20%;
 }
 .setting-heading {
   font-weight: 900;
-  margin-right: 25px;
+  margin-right: 0;
   margin-left: 0;
   padding-left: 0;
+  font-size: 1rem;
 }
 .account-details {
-  margin-right: 20%;
+  margin-top: 15%;
+}
+.account-settings-container {
+  margin-right: 0;
+  padding-right: 0;
+  min-width: 15%;
+  position: relative;
 }
 </style>

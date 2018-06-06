@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid" ref="form" lazy-validation>
+  <v-form v-model="valid" ref="form" lazy-validation class="account-settings-form">
     <v-card class="pl-3">
       <v-layout pt-3 pb-3>
         <v-card-title>Notification Settings</v-card-title>
@@ -31,3 +31,12 @@ import SettingsMixin from './Settings.mixin'
 export default { mixins: [SettingsMixin], name: 'AccountSettings' }
 </script>
 
+<style scoped>
+.account-settings-form {
+  position: relative;
+  margin-right: 0;
+  padding-right: 0;
+  margin-left: 5%;
+  max-width: 80%
+}
+</style>
