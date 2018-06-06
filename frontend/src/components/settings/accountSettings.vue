@@ -6,19 +6,19 @@
       </v-layout>
       <v-layout>
         <v-flex xs4>
-          <v-checkbox v-model="receiveEmails" label="Email Notifications"></v-checkbox>
+          <v-checkbox v-model="receiveEmails"  label="Email"></v-checkbox>
         </v-flex>
         <v-flex xs4>
-          <v-checkbox v-model="receiveTexts" label="Text Notifications"></v-checkbox>
+          <v-checkbox v-model="receiveTexts" label="Text"></v-checkbox>
         </v-flex>
       </v-layout>
     </v-card>
     <v-card class="pr-5 pl-5 mt-3 elevation-3">
       <v-card-title>Change your password</v-card-title>
-      <v-text-field label="Old Password" v-model="oldPassword"></v-text-field>
-      <v-text-field label="New Password" v-model="newPassword"></v-text-field>
-      <v-text-field label="Confirm Password" :rules="confirmPasswordRules" v-model="confirmPassword"></v-text-field>
-      <v-btn @click="updateSettings" :disabled="!valid">
+      <v-text-field label="Old Password" v-model="oldPassword" type="password"></v-text-field>
+      <v-text-field label="New Password" v-model="newPassword" type="password"></v-text-field>
+      <v-text-field label="Confirm Password" type="password" :rules="confirmPasswordRules" v-model="confirmPassword"></v-text-field>
+      <v-btn @click="submitNewSettings" :disabled="!valid">
         submit
       </v-btn>
       <v-btn @click="clear">clear</v-btn>

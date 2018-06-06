@@ -9,7 +9,7 @@
             </v-toolbar>
             <v-card-text>
               <v-form class="input-form">
-                <v-text-field  prepend-icon="person" name="fullName" label="Full Name" type="text" v-model="fullName"></v-text-field>
+                <v-text-field  prepend-icon="person" name="name" label="Full Name" type="text" v-model="name"></v-text-field>
                 <v-text-field  prepend-icon="email" name="email" label="Email" type="text" v-model="email"></v-text-field>
                 <v-text-field  id="password" prepend-icon="lock" name="password" label="Password" type="password" v-model="password"></v-text-field>
                 <v-text-field id="confirmPassword" name="confirmPasssword" label="Confirm Password" type="password"></v-text-field>

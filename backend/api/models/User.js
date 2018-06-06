@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   attributes: {
-    fullName: {
+    name: {
       description: 'The full name of the user',
       type: 'string',
       required: true

@@ -29,13 +29,13 @@ export default {
       }
     },
 
-    fullName: {
+    name: {
       get () {
-        return this.$store.state.User.user.fullName
+        return this.$store.state.User.user.name
       },
 
-      set (fullName) {
-        this.$store.commit('SET_USER_NAME', fullName)
+      set (name) {
+        this.$store.commit('SET_USER_NAME', name)
       }
     },
 
@@ -63,7 +63,7 @@ export default {
     async signup () {
       const user = {
         email: this.email,
-        fullName: this.fullName,
+        name: this.name,
         password: this.password,
         phoneNumber: this.phoneNumber
       }

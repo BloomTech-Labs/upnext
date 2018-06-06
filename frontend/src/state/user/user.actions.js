@@ -13,12 +13,12 @@ export default {
     })
   },
 
-  postUser (context, {email, fullName, password}) {
+  postUser (context, {email, name, password}) {
     return new Promise((resolve, reject) => {
       Vue.http
       .post('/api/signup/post', {
         email,
-        fullName,
+        name,
         password
       })
       .then(response => {
@@ -43,23 +43,20 @@ export default {
         .catch(error => reject(error))
     })
   },
-
-  updateSettings (context, {email, phoneNumber, receiveTexts, receiveEmails, password}) {
+  updateSettings (context, { receiveEmails, receiveTexts }) {
     return new Promise((resolve, reject) => {
       Vue.http
-        .put('/api/user/patch', {
+        .post('/api/user/post', {
           id: window.localStorage.user,
-          email,
-          password,
-          phoneNumber,
           receiveEmails,
           receiveTexts
         })
         .then(response => {
-          context.commit('SET_RECEIVED_RESPONSE', true)
+          context.commit('SET_UPDATED_SETTINGS', response.body)
           resolve(response.body)
         })
-        .catch(err => reject(err))
+        .catch(error => reject(error))
     })
   }
+
 }

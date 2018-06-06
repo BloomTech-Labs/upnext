@@ -1,5 +1,23 @@
-
+import router from '../../router/router.desktop'
 export default {
+  data () {
+    return ({
+      showAccountSettings: true,
+      showBillingSettings: false,
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+      confirmPasswordRules: [(v) => v === this.newPassword || 'Passwords do not match'],
+      valid: true,
+      phoneRules: {
+        required: true,
+        pattern: /\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*/,
+        message: 'Please input phone',
+        trigger: 'blur'
+      },
+      editPhone: false
+    })
+  },
   computed: {
     user: {
       get () {
@@ -41,18 +59,18 @@ export default {
         this.$store.commit('SET_TEXT_NOTIFICATIONS', receiveTexts)
       }
     },
-    showAccountSettings: true,
-    showBillingSettings: false,
-    oldPassword: '',
-    newPassword: '',
-    confirmPassword: '',
-    confirmPasswordRules: (v) => v === this.newPassword || 'Passwords do not match'
+    editPhoneFn () {
+      if (this.editPhone) this.editPhone = !this.editPhone
+    },
+    stopEditFn () {
+      if (!this.editPhone) this.editPhone = true
+    }
   },
 
   methods: {
-    async updateSettings () {
+    async submitNewSettings () {
       const preferences = {
-        phoneNumber: this.phoneNumber,
+        password: this.confirmPassword,
         receiveEmails: this.receiveEmails,
         receiveTexts: this.receiveTexts
       }
@@ -61,7 +79,22 @@ export default {
       console.log(result)
     },
     goToEvents () {
-      this.$router.push('viewevents')
+      router.push('ViewEvents')
+      console.log('navigating to events')
+    },
+    displayBillingSettings () {
+      this.showAccountSettings = !this.showAccountSettings
+      this.showBillingSettings = !this.showBillingSettings
+    },
+    displayAccountSettings () {
+      this.showAccountSettings = !this.showAccountSettings
+      this.showBillingSettings = !this.showBillingSettings
+    },
+    clear () {
+      this.oldPassword = ''
+      this.newPassword = ''
+      this.confirmPassword = ''
     }
   }
 }
+

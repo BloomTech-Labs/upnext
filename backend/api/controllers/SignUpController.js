@@ -2,14 +2,14 @@ module.exports = {
   post: async (req, res) => {
     const {
       email,
-      fullName,
+      name,
       password,
       isAdmin
     } = req.allParams();
 
     const user = await User.create({
       email,
-      fullName,
+      name,
       password,
       isAdmin
     }).fetch();

@@ -44,7 +44,7 @@ module.exports.routes = {
 
   'get /api/user/get': 'user/UserController.get',
 
-  'patch /api/user/patch': 'user/UserController.put',
+  'post /api/user/post': 'user/UserController.updateNotificationSettings',
 
   /***************************************************************************/
   /**                                ADDED                                  **/

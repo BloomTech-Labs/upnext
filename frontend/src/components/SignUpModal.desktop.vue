@@ -17,7 +17,7 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="fullName" label="Full name" required></v-text-field>
+                <v-text-field v-model="name" label="Full name" required></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field label="Email" v-model="email" required></v-text-field>
@@ -62,15 +62,15 @@ export default {
   data: () => ({
     dialog: false,
     isLoading: false,
-    fullName: '',
+    name: '',
     email: '',
     password: '',
     confirmPassword: ''
   }),
   methods: {
     postNewUser: function() {
-      const { fullName, email, password } = this;
-      const newUser = { fullName, email, password };
+      const { name, email, password } = this;
+      const newUser = { name, email, password };
       console.log(newUser);
       if (password === this.confirmPassword) {
         this.isLoading = true;
