@@ -1,7 +1,6 @@
 <template>
 
   <div>
-    <Toolbar></Toolbar>
 
   <v-container  class="margin" fluid grid-list-sm>
     <v-layout justify-center>
