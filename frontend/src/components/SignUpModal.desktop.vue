@@ -5,8 +5,9 @@
       <v-btn
       slot="activator"
       text="sign up"
-      style=""
-      light>
+      class="signUpButton"
+      style="background-color: #051760; color: white;"
+      >
       Sign Up
       </v-btn>
       <v-card>
@@ -17,7 +18,7 @@
           <v-container grid-list-md>
             <v-layout wrap>
               <v-flex xs12 sm6 md4>
-                <v-text-field v-model="name" label="Full name" required></v-text-field>
+                <v-text-field v-model="fullName" label="Full name" required></v-text-field>
               </v-flex>
               <v-flex xs12>
                 <v-text-field label="Email" v-model="email" required></v-text-field>
@@ -62,15 +63,15 @@ export default {
   data: () => ({
     dialog: false,
     isLoading: false,
-    name: '',
+    fullName: '',
     email: '',
     password: '',
     confirmPassword: ''
   }),
   methods: {
     postNewUser: function() {
-      const { name, email, password } = this;
-      const newUser = { name, email, password };
+      const { fullName, email, password } = this;
+      const newUser = { fullName, email, password };
       console.log(newUser);
       if (password === this.confirmPassword) {
         this.isLoading = true;
@@ -93,12 +94,12 @@ export default {
 </script>
 
 <style scoped>
-.target {
-  overflow: hidden;
-  background-color: #051760;
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  padding: 10px;
-  margin: 10px;
-}
+  .signUpButton {
+    overflow:hidden;
+    text-shadow: 1px 1px 2px black; 
+    /* padding: 10px;  */
+    margin: 10px
+  }
+
 </style>
+

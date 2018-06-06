@@ -1,140 +1,138 @@
 <template>
-    <v-toolbar class="toolbar" fixed>
+  <v-content>   
+    <v-toolbar
+      class="offWhite"
+      fixed
+    >
 
       <v-toolbar-items>
-        <SignUpModal class="ml-4 sign-up"></SignUpModal>
+        <SignUpModal class="ml-4 offWhite"></SignUpModal>
       </v-toolbar-items>
 
      <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-
-
-     <v-content class="title-up"> Up<span class="title-next">Next</span></v-content>
-
-
-
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
-     <v-spacer></v-spacer>
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
      <v-spacer></v-spacer>
 
 
+     <v-content class="toolBarLogo"> Up<span style="color: #C8E123; textShadow: 1px 2px 2px black">Next</span></v-content>     
+
+
+
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+     <v-spacer></v-spacer>     
+          
+             
     <v-toolbar-items>
-      <LoginModal style="backgroundColor: #e5dcd6" class="ml-3 mx-1"></LoginModal>
-
-      <ViewButton></ViewButton>
-    </v-toolbar-items>
+      <LoginModal  class="offWhite ml-3 mx-1"></LoginModal>
+        
+      <LogoutModal  class="offWhite mr-1 mx-1"></LogoutModal>
+    </v-toolbar-items>         
     </v-toolbar>
+  </v-content>
 </template>
 
 <script>
-import SignUpModal from './SignUpModal.desktop.vue'
-import LoginModal from './LoginModal.desktop.vue'
-import ViewButton from './ViewEventsButton.desktop.vue'
+import SignUpModal from "./SignUpModal.desktop.vue";
+import LoginModal from "./LoginModal.desktop.vue";
+import LogoutModal from "./LogoutModal.desktop.vue";
 
 export default {
-  name: 'Toolbar',
+  name: "Toolbar",
   components: {
     SignUpModal,
     LoginModal,
-    ViewButton
+    LogoutModal
   },
   data: function() {
     return {
-      title: 'UpNext',
-      email: '',
+      title: "UpNext",
+      email: "",
       emailRules: [
         v => {
-          return !!v || 'Please enter an email'
+          return !!v || "Please enter an email";
         },
         v =>
           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          'Invalid email'
+          "Invalid email"
       ],
       subscribed: false,
       dialog: false,
       authorized: false
-    }
+    };
   },
   methods: {
     subscribe: function() {
-      this.subscribed = !this.subscribed
+      this.subscribed = !this.subscribed;
     },
     openDialog: function() {
-      this.open = true
+      this.open = true;
     },
 
     logout() {
-      this.deleteCookie('user')
-      this.isUserAuthenticated = false
-      localStorage.clear()
+      this.deleteCookie("user");
+      this.isUserAuthenticated = false;
+      localStorage.clear();
 
-      this.$router.push({ name: 'Landing' })
+      this.$router.push({ name: "Landing" });
     },
     deleteCookie(cookie) {
-      document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;`
+      document.cookie = `${cookie}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
     }
   },
 
   computed: {
     imgHeight: function() {
-      var offset = 320
-      console.log('new image height is ' + (this.pageHeight - offset))
-      return this.pageHeight - offset
+      var offset = 320;
+      console.log("new image height is " + (this.pageHeight - offset));
+      return this.pageHeight - offset;
     }
   },
-}
+
+  mounted: function() {
+    this.calculateHeight();
+  }
+};
 </script>
 
 <style scoped>
-.finedTitle {
-  font-weight: 900;
-  text-shadow: 2px 2px #000000;
-}
+  .offWhite {
+    background-color: #e5dcd6;
+  }
 
-.social-icon {
-  font-size: 21px;
-  color: white;
-}
-.toolbar {
-  position: relative; 
-  background-color: 	#e5dcd6
-}
+  .toolBarLogo {
+    text-align: center; 
+    font-size: 50px; 
+    font-weight: bold; 
+    color: white; 
+    text-shadow: 1px 2px 2px black;
+    font-family: Roboto;
+  }
 
-.sign-up {
-  background-color: #e5dcd6
-}
-.title-up {
-  text-align: center; 
-  font-size: 50px; 
-  font-weight: bold; 
-  color: white; 
-  text-shadow: 1px 2px 2px black;
-}
-.title-next {
-  color: #C8E123;
-  text-shadow: 1px 2px 2px black;
-}
+  .yellowNext {
+    color: #c8e213;
+    text-shadow: 1px 2px 2px black;
+  }
 </style>

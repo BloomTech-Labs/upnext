@@ -2,7 +2,7 @@
 
   <v-layout justify-center>
     <v-flex xs8>
-      <v-toolbar color="yellow darken-1">
+      <v-toolbar class="eventInfo">
         <v-toolbar-title>Schedule</v-toolbar-title>
       </v-toolbar>
 
@@ -42,3 +42,27 @@ export default {
 }
 </script>
 
+<style scoped>
+  .eventInfo {
+    background-color: #7D4A33; 
+    color: white;  
+    font-family: Roboto; 
+    text-shadow: 1px 1px 2px black;
+  }
+  .margin {
+    margin-top: 10%;
+  }
+
+  .inputBoxes {
+    font-family: Roboto;
+    font-weight: 500;
+  }
+
+  .darkBlueButton {
+    background-color: #051760; 
+    color: white; 
+    text-shadow: 1px 1px 2px black; 
+    font-family: Roboto
+  }
+
+</style>

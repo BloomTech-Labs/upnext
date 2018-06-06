@@ -3,12 +3,12 @@
   <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="500px">
       <v-btn
-      style="background-color: #e9751a; color: white;"
+      class="logoutButton"
       slot="activator"
       text="Log Out"
-      class="loginButton"
+      style="background-color: #962F2F; color: white;"
       light>
-      Login
+      Logout
       </v-btn>
       <v-card>
         <v-card-title>
@@ -49,11 +49,9 @@ export default {
 </script>
 
 <style scoped>
-  .loginButton {
+  .logoutButton {
     overflow:hidden; 
-    background-color: #e9751a; 
-    color: white; 
-    text-shadow: 1px 1px 2px black;  
+    text-shadow: 1px 1px 2px black; 
     margin: 10px
   }
 
