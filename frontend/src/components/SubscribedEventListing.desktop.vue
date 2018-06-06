@@ -20,7 +20,8 @@
                       <v-card-text style="lineHeight: 2.5rem; fontSize: 18px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</v-card-text>
 
                     </v-card>
-                    <v-btn style="backgroundColor: #E7741A; color: white; textShadow: 1px 2px 2px black;" @click=""> View Details </v-btn>
+                    <!-- TODO : ADD @CLICK TO THE BTN COMPONENT BELOW -->
+                    <v-btn style="backgroundColor: #E7741A; color: white; textShadow: 1px 2px 2px black;"> View Details </v-btn>
                   </v-expansion-panel-content>
                 </v-expansion-panel>
               </v-flex>

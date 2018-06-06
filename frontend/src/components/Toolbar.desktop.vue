@@ -110,16 +110,13 @@ export default {
       return this.pageHeight - offset;
     }
   },
-
-  mounted: function() {
-    this.calculateHeight();
-  }
 };
 </script>
 
 <style scoped>
   .offWhite {
     background-color: #e5dcd6;
+    position: relative;
   }
 
   .toolBarLogo {

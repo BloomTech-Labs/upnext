@@ -60,6 +60,7 @@ module.exports.bootstrap = function(cb) {
         User.create({
           name: user.name,
           password: user.password,
+          email: user.email,
           isAdmin: user.isAdmin
         }).exec((error, user) => {
           sails.log.info('Created fixture user', user);
