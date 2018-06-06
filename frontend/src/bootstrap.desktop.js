@@ -3,10 +3,12 @@ import App from './App.desktop'
 
 import router from './router/router.desktop'
 import Vuetify from 'vuetify'
+import Animate from 'animate.css'
 
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
+Vue.use(Animate)
 
 Vue.http.interceptors.push((request, next) => {
   console.log('In Intercptor')

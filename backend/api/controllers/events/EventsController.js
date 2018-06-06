@@ -179,6 +179,13 @@ module.exports = {
         let tempGroups = [];
         let groupIds = [];
 
+        const convertedGroups = inputs.groupsWithTime.map(group => {
+          return {
+            name: group.name,
+            time: +TimeFuncs.makeDateWithTimeStr(inputs.startDate, group.time)
+          };
+        });
+
         tempGroups = await Group.createEach(inputs.groupsWithTime).fetch();
 
         groupIds = tempGroups.map(group => {

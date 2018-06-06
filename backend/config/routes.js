@@ -46,6 +46,8 @@ module.exports.routes = {
 
   'post /api/user/post': 'user/UserController.updateNotificationSettings',
 
+  'post /api/user/updatepassword': 'user/UserController.updatePassword',
+
   /***************************************************************************/
   /**                                ADDED                                  **/
   /***************************************************************************/

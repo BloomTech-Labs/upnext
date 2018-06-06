@@ -26,28 +26,28 @@ const users = [
     name: 'Tom',
     password: 'jerry'
   }
-];
+]
 
 const events = [
   {
     title: 'Event1',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
-    startDate: Date.now(),
+    startDate: '9/6/2018',
     description: 'The first event ever!!!!'
   },
   {
     title: 'Event2',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
-    startDate: Date.now(),
+    startDate: '7/8/2018',
     description: 'The second event ever!!!!'
   },
   {
     title: 'Event3',
     groupsWithTime: { Group1: '1:00', Group2: '2:00', Group3: '3:00' },
-    startDate: Date.now(),
+    startDate: '11/15/2018',
     description: 'The third event ever!!!!'
   }
-];
+]
 
 module.exports.bootstrap = function(cb) {
   users.forEach(user => {

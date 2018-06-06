@@ -12,10 +12,11 @@ module.exports = {
     },
 
     time: {
-      type: 'string',
-      description: 'Time when the group is up next',
+      type: 'number',
+      description:
+        'A JS timestamp (epoch ms) representing the moment when this group starts',
       required: true,
-      example: '4:00'
+      example: 1502844074211
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

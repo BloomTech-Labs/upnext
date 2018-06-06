@@ -4,7 +4,9 @@
     <v-app>
       <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
       <Toolbar></Toolbar>
-      <router-view ></router-view>
+      <transition name="custom-classes-transition" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" >
+        <router-view ></router-view>
+      </transition>
     </v-app>
 
 
