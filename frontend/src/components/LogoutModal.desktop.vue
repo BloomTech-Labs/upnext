@@ -22,7 +22,6 @@
           Cancel
           </v-btn>
           <v-btn
-          style="background-color:"
           flat
           @click.native="postNewUser"
           >

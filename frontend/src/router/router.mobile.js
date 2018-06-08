@@ -8,9 +8,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'Landing',
       component: resolve => {
-        require(['./../components/Landing.desktop.vue'], resolve)
+        require(['./../components/Landing.mobile.vue'], resolve)
+      }
+    },
+    {
+      path: './admincreate',
+      name: 'AdminEventCreate',
+      component: resolve => {
+        require(['./../components/AdminEventCreate.mobile.vue'])
       }
     },
     {
@@ -18,6 +25,13 @@ export default new Router({
       name: 'SignUp',
       component: resolve => {
         require(['./../components/SignUp.mobile.vue'], resolve)
+      }
+    },
+    {
+      path: '/pay',
+      name: 'StripePaymentv',
+      component: resolve => {
+        require(['./../components/StripePayments.vue'])
       }
     },
     {

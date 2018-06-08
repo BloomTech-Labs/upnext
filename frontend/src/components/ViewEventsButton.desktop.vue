@@ -3,10 +3,11 @@
     <v-layout max-width="500px" row justify-center>
       <v-dialog  max-width="500px">
         <v-btn
+        @click.prevent="goToEvents"
         slot="activator"
         text="View Events"
         class="viewEventsButton"
-        style="background-color: #0182e7; color: white;"
+        style="background-color: #051760; color: white;"
         light>View Events
         </v-btn>
       </v-dialog>
@@ -18,8 +19,11 @@
 //const axios = require('axios');
 
 export default {
-  data: () => ({
-  })
+  methods: {
+    goToEvents() {
+      this.$router.push('ViewEvents')
+    }
+  }
 };
 </script>
 
@@ -29,7 +33,8 @@ export default {
   background-color: #0182E7; 
   color: white; 
   text-shadow: 1px 1px 2px black; 
-  margin: 10px
+  margin: 10px;
+  padding: 5px;
 }
 
 </style>

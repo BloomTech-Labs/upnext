@@ -5,7 +5,7 @@ module.exports = {
     User.findOne({ email }).exec((error, user) => {
       if (error) return res.serverError(error);
       if (!user) return res.forbidden();
-
+      console.log(user)
       User.checkIfPasswordIsValid(password, user, (error, isValid) => {
         if (error) return res.serverError(error);
         if (!isValid) return res.forbidden();
@@ -17,7 +17,7 @@ module.exports = {
         if (user.isAdmin) {
           encryptedAdmin = CryptographyService.encrypt(user.isAdmin);
         }
-
+        
         return res.json({
           token: TokenService.issue({ id: user.id }),
           cookies: { user: encryptedId, isAdmin: encryptedAdmin }

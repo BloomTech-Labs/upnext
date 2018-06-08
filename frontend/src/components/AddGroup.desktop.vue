@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
   .eventInfo {
-    background-color: #7D4A33; 
+    background-color: rgb(0, 178, 248); 
     color: white;  
     font-family: Roboto; 
     text-shadow: 1px 1px 2px black;

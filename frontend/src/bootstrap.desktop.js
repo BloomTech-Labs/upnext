@@ -4,11 +4,22 @@ import App from './App.desktop'
 import router from './router/router.desktop'
 import Vuetify from 'vuetify'
 import Animate from 'animate.css'
+import VueStripeCheckout from 'vue-stripe-checkout'
 
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 Vue.use(Animate)
+
+const options = {
+  key: 'pk_test_YwwFFUpskxZbjMNL5k12llgi',
+  image: 'https://image.ibb.co/dv67Y8/upnextlogo.png',
+  locale: 'auto',
+  currency: 'USD',
+  billingAddress: true,
+  panelLabel: 'Subscribe {{amount}}'
+}
+Vue.use(VueStripeCheckout, options)
 
 Vue.http.interceptors.push((request, next) => {
   console.log('In Intercptor')

@@ -2,7 +2,7 @@
   <v-content>
     <v-toolbar class="offWhite">
 
-      <v-toolbar-items v-if="isUserAuthenticated">
+      <v-toolbar-items v-if="isAuthenticated">
         <nav-menu class="offWhite pt-3 "></nav-menu>
         <!-- <SignUpModal class="ml-4 offWhite"></SignUpModal> -->
       </v-toolbar-items>
@@ -12,9 +12,9 @@
       </v-content>
 
       <v-toolbar-items>
-        <LoginModal class="offWhite pt-2 ml-3 mx-1"></LoginModal>
+        <LoginModal v-if="!isAuthenticated" class="offWhite pt-2 ml-3 mx-1"></LoginModal>
         <view-events-button class="offWhite"></view-events-button>
-        <LogoutModal v-if="isUserAuthenticated" class="offWhite mr-1 mx-1"></LogoutModal>
+        <LogoutModal v-if="isAuthenticated" class="offWhite mr-1 mx-1"></LogoutModal>
       </v-toolbar-items>
     </v-toolbar>
   </v-content>
@@ -81,7 +81,12 @@ export default {
       var offset = 320
       console.log('new image height is ' + (this.pageHeight - offset))
       return this.pageHeight - offset
-    }
+    },
+    isAuthenticated: {
+      get () {
+        return this.$store.state.isUserAuthenticated
+      }
+    }    
   }
 }
 </script>

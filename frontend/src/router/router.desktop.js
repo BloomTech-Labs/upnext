@@ -70,6 +70,13 @@ export default new Router({
       }
     },
     {
+      path: '/pay',
+      name: 'StripePayment',
+      component: resolve => {
+        require(['./../components/StripePayments.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '*',
       component: resolve => {
         require(['./../components/Landing.desktop.vue'], resolve)

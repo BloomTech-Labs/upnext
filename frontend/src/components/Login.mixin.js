@@ -44,7 +44,7 @@ export default {
 
   methods: {
     async login () {
-      let {token, cookie} = await this
+      let {token, cookies} = await this
         .$store
         .dispatch('loginUser', this.user)
 
@@ -54,12 +54,16 @@ export default {
       window
         .localStorage
         .setItem('email', this.email)
-      this.setCookie('user', cookie, 3600 * 24 * 7)
+      this.setCookie('user', cookies.user, 3600 * 24 * 7)
+      if (cookies.isAdmin) {
+        this.setCookie('isAdmin', cookies.isAdmin, 3600 * 24 * 7)
+      }
+      this.setIsAdmin(true)
       this.setIsUserAuthenticated(true)
 
       this
         .$router
-        .push({name: 'AdminEventCreate'})
+        .push({name: 'ViewEvents'})
     },
 
     setCookie (name, value, seconds) {
@@ -68,6 +72,6 @@ export default {
         : ''
       document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/'
     },
-    ...mapMutations({setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED'})
+    ...mapMutations({setIsUserAuthenticated: 'SET_IS_USER_AUTHENTICATED', setIsAdmin: 'SET_IS_ADMIN'})
   }
 }

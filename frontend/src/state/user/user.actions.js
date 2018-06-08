@@ -57,6 +57,15 @@ export default {
         })
         .catch(error => reject(error))
     })
+  },
+  makePayment (context, token) {
+    return new Promise((resolve, reject) => {
+      Vue.http
+      .post('/api/payments', token)
+      .then(response => {
+        resolve(response.body)
+      })
+      .catch(error => reject(error))
+    })
   }
-
 }

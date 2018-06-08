@@ -1,117 +1,92 @@
 <template>
   <div id="app">
-    <mt-header title="Product paradise">
-      <router-link :to="{ name: 'Home'}" slot="left">
-        <mt-button>{{ t('app.mixin.home')}}</mt-button>
-      </router-link>
-      <span slot="right">
-        <mt-button icon="more" @click.native="isNavbarVisible = true"></mt-button>
-        </span>
-    </mt-header>
 
-    <router-view @userLoggedIn="setActions"></router-view>
+    <v-app>
+      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+      <Toolbar></Toolbar>
+      <transition name="custom-classes-transition" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut" >
+        <router-view ></router-view>
+      </transition>
+    </v-app>
 
-    <footer class="mt-3 text-center">
-      <span class="text-muted">
-        <small>
-          This shop is not real and only for demonstration purposes. <a href="https://github.com/ndabAP/vue-sails-example">Source code</a>
-        </small>
-      </span>
-    </footer>
 
-    <mt-actionsheet
-      :cancelText="t('app.mixin.cancelText')"
-      size="large"
-      :actions="actions"
-      v-model="isNavbarVisible">
-    </mt-actionsheet>
+
   </div>
 </template>
 
 <script>
-  import AppMixin from './App.mixin'
-  import { Toast } from 'mint-ui'
+import * as socketIoClient from 'socket.io-client'
+import * as sailsIo from 'sails.io.js'
+import { mapMutations } from 'vuex'
+import AppMixin from './App.mixin'
 
-  export default {
-    mixins: [AppMixin],
+const Landing = () => import('./components/Landing.desktop')
+const Toolbar = () => import('./components/Toolbar.desktop')
 
-    data: () => ({
-      actions: [],
-      isNavbarVisible: false
-    }),
+export default {
+  mixins: [AppMixin],
 
-    mounted () {
-      this.setActions()
-    },
+  components: {
+      Landing,
+    Toolbar
+  },
 
-    methods: {
-      setActions () {
-        let actions = []
+  data: () => ({
+    io: null
+  }),
 
+  computed: {
+    isHelpVisible: {
+      get() {
+        return this.$store.state.isHelpVisible
+      },
 
-          actions.push({
-            name: 'Logout',
-            method: () => {
-              this.deleteCookie('user')
-              this.isUserAuthenticated = false
-
-              this.$nextTick(() => this.setActions())
-
-              Toast({
-                message: this.t('app.mobile.logout'),
-                position: 'bottom',
-                duration: 3000
-              })
-              this.$router.push({name: 'Home'})
-            }
-          })
-        actions.push({
-          name: 'Change language',
-          method: () => {
-            let locale = this.$store.state.locale
-
-            if (locale === 'en') this.setLocale('de')
-            if (locale === 'de') this.setLocale('en')
-
-            Toast({
-              message: this.t('app.mixin.language.changed'),
-              position: 'bottom',
-              duration: 3000
-            })
-
-            this.$nextTick(() => this.setActions())
-          }
-        })
-
-        this.$set(this, 'actions', actions)
+      set(isHelpVisible) {
+        this.store.commit('SET_IS_HELP_VISIBLE', isHelpVisible)
       }
     }
+  },
+
+  watch: {
+    isHelpVisible() {
+      if (!this.isHelpVisible) this.io.socket.disconnect()
+      if (this.isHelpVisible && this.io) this.io.socket.reconnect()
+    }
+  },
+
+  methods: {
+    setIo() {
+      if (!this.io) {
+        let io = sailsIo(socketIoClient)
+
+        let isProductionEnvironment = process.env.NODE_ENV === 'production'
+        let url
+
+        if (isProductionEnvironment) {
+          url = `${location.protocol}//${location.hostname}${
+            location.port ? ':' + location.port : ''
+          }`
+        } else url = 'http://localhost:1337'
+
+        io.sails.url = url
+        io.sails.environment = process.env.NODE_ENV || 'development'
+        io.sails.useCORSRouteToGetCookie = false
+
+        this.$set(this, 'io', io)
+      }
+    },
+
+    logout() {
+      this.deleteCookie('user')
+      this.isUserAuthenticated = false
+      localStorage.clear()
+
+      this.$router.push({ name: 'Home' })
+    },
+
+    ...mapMutations({
+      setIsHelpVisible: 'SET_IS_HELP_VISIBLE'
+    })
   }
+}
 </script>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
-  }
-
-  button {
-    margin-left: 5px !important;
-  }
-
-  .mt-3 {
-    margin-top: 1rem !important;
-  }
-
-  .text-muted {
-    color: #636c72 !important;
-  }
-
-  footer {
-    padding: 0 10px;
-  }
-
-  .text-center {
-    text-align: center !important;
-  }
-</style>
