@@ -6,7 +6,7 @@
       class="logoutButton"
       slot="activator"
       text="Log Out"
-      style="background-color: #962F2F; color: white;"
+      style="background-color: #962F2F; color: white; min-height: 30px"
       light>
       Logout
       </v-btn>
@@ -16,8 +16,7 @@
         </v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-          style="background-color:"
+          <v-btn>
           app
           flat @click.native="dialog = false">
           Cancel
@@ -50,9 +49,8 @@ export default {
 
 <style scoped>
   .logoutButton {
-    overflow:hidden; 
     text-shadow: 1px 1px 2px black; 
-    margin: 10px
+    margin: 9px;
   }
 
 </style>
