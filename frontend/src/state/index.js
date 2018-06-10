@@ -21,6 +21,7 @@ export default new Vuex.Store({
     locale: 'en',
     isUserAuthenticated: !!getCookie('user'),
     isAdmin: !!getCookie('isAdmin'),
+    eventId: 0,
     isHelpVisible: false
   },
 
@@ -31,6 +32,10 @@ export default new Vuex.Store({
 
     SET_IS_ADMIN (state, isAdmin) {
       state.isAdmin = isAdmin
+    },
+
+    SET_EVENT_ID (state, id) {
+      state.eventId = id
     },
 
     SET_LOCALE (state, locale) {

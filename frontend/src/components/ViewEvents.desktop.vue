@@ -4,26 +4,36 @@
 
 
   <v-content>
-    <SubscribedEvents :title="titles[0]" style="marginTop: 5%"></SubscribedEvents>
+    <SubscribedEvents  v-if="!this.isAdmin" :events="events" :title="titles[0]" style="marginTop: 5%"></SubscribedEvents>
+    <SubscribedEvents v-if="this.isAdmin" :events="events" :title="titles[2]" style="marginTop: 5%"></SubscribedEvents>
 
-    <SubscribedEvents :title="titles[1]" style="marginTop: 5%"></SubscribedEvents>
+    <SubscribedEvents :events="events" :title="titles[1]" style="marginTop: 5%"></SubscribedEvents>
   </v-content>
 
 </template>
 
 <script>
 import SubscribedEvents from './SubscribedEventListing.desktop.vue'
+import EventsMixin from './AdminEventsList.mixin'
 
 export default {
   data() {
     return {
-      titles: ['Subscribed Events', 'Public Events']
+      titles: ['Subscribed Events', 'Public Events', 'Created Events']
+    }
+  },
+  computed: {
+        isAdmin: {
+      get () {
+        return this.$store.state.isAdmin
+      }
     }
   },
   name: 'PublicEventsList',
   components: {
     SubscribedEvents
-  }
+  },
+  mixins: [EventsMixin]
 }
 </script>
 

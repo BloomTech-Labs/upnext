@@ -26,7 +26,7 @@ const users = [
     name: 'Tom',
     password: 'jerry'
   }
-]
+] 
 
 const events = [
   {

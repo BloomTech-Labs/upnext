@@ -28,6 +28,13 @@ export default new Router({
       }
     },
     {
+      path: '/eventdetails',
+      name: 'EventDetails',
+      component: resolve => {
+        require(['./../components/EventDetails.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '/adminlist',
       name: 'AdminEventsList',
       component: resolve => {

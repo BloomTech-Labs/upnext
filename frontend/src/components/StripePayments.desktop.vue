@@ -1,27 +1,31 @@
 <template>
   <v-content>
-    <div id="button-container">
+      <div id="button-container">
       <button id="checkout-button" @click="checkout">Checkout</button>
     </div>
   </v-content>
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
   methods: {
-    checkout() {
-      this.$checkout.open({
+    async checkout() {
+      await this.$checkout.open({
         name: 'Enter Payment Details:',
         currency: 'USD',
         amount: 9.99,
-        token: token => {
+        token: async token => {
           console.log(token)
-          console.log('This went through correctly**********************')
-        }
-      })
+          const source = token
+          let result = await this.$store.dispatch('makePayment', source);
+          console.log(result)
+          }
+        })  
+      }
     }
   }
-}
 </script>
 <style>
 #checkout-button {

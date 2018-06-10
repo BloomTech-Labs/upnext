@@ -1,4 +1,7 @@
-import { mapActions } from 'vuex'
+import {
+  mapActions,
+  mapMutations
+} from 'vuex'
 
 export default {
   created () {
@@ -17,11 +20,20 @@ export default {
 
   methods: {
     ...mapActions(['getEvents', 'deleteEvent', 'addEvent']),
+    ...mapMutations({
+      setEventId: 'SET_EVENT_ID'
+    }),
     deleteSingleEvent (id) {
       console.log('ABOUT TO DELETE, ID:', id, '\nThis:', this)
       this.deleteEvent(id).then(() => {
         console.log('SUCCESSFUL DELETION: WORLD SAVED')
         this.getEvents()
+      })
+    },
+    gotoEventDetails (id) {
+      this.setEventId(id)
+      this.$router.push({
+        name: 'EventDetails'
       })
     }
   }

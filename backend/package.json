@@ -26,6 +26,7 @@
     "include-all": "^1.0.0",
     "jsonwebtoken": "^7.4.3",
     "lodash": "^4.17.10",
+    "machinepack-stripe": "^3.0.0",
     "mocha": "^3.4.2",
     "rc": "1.0.1",
     "sails": "^1.0.0-45",
