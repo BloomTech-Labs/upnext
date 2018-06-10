@@ -33,20 +33,26 @@ module.exports = {
       }
     },
 
-    fn: async function(inputs, exits) {
+    fn: async function (inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)
 
       //const page = req.param('page');
-      User.findOne({ name: inputs.user })
+      User.findOne({
+          name: inputs.user
+        })
         .populate('subscribedEvents')
         .populate('adminEvents')
         .exec((err, user) => {
           if (user.isAdmin) {
-            exits.success({ events: user.adminEvents });
+            exits.success({
+              events: user.adminEvents
+            });
           } else {
-            exits.success({ events: user.subscribedEvents });
+            exits.success({
+              events: user.subscribedEvents
+            });
           }
         });
 
@@ -87,7 +93,7 @@ module.exports = {
       }
     },
 
-    fn: async function(inputs, exits) {
+    fn: async function (inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)
@@ -95,8 +101,12 @@ module.exports = {
       //const page = req.param('page');
       console.log('TURNS OUT YOU AN ADMIN');
 
-      Event.destroy({ id: inputs.id }).exec((err, deleted) => {
-        return exits.success({ deleted: deleted });
+      Event.destroy({
+        id: inputs.id
+      }).exec((err, deleted) => {
+        return exits.success({
+          deleted: deleted
+        });
       });
       // Send success response (this is where the session actually gets persisted)
     }
@@ -150,7 +160,7 @@ module.exports = {
       }
     },
 
-    fn: async function(inputs, exits) {
+    fn: async function (inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)
@@ -174,7 +184,9 @@ module.exports = {
       // Attach groups to the event
       // Add event to user adminEvents property
 
-      User.findOne({ id: user }).exec(async (err, user) => {
+      User.findOne({
+        id: user
+      }).exec(async (err, user) => {
         console.log('USER', user);
         let tempGroups = [];
         let groupIds = [];
@@ -201,9 +213,15 @@ module.exports = {
           description: inputs.description
         }).fetch();
         await Event.addToCollection(newEvent.id, 'groups', groupIds);
-        await Event.update({ id: newEvent.id }).set({ owner: user.id });
+        await Event.update({
+          id: newEvent.id
+        }).set({
+          owner: user.id
+        });
 
-        return exits.success({ event: newEvent });
+        return exits.success({
+          event: newEvent
+        });
       });
     }
   }

@@ -1,9 +1,6 @@
 <template>
   <v-app light style="backgroundColor: #EAEAEA">
     <!-- Toolbar section -->
-      <section>
-        <Toolbar> </Toolbar>
-      </section>
 
 
 

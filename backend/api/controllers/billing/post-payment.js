@@ -52,8 +52,12 @@ const stripe = require("stripe")(
       description: 'Event scheduling notifications',
       source: id,
     });
-
-    if (charge) res.json(charge)
+    const userToUpdate = CryptographyService.decrypt(req.cookies.user)
+    if (charge.paid) {
+      User.update({ id: userToUpdate })
+      .set({ isAdmin: true })
+      res.json(charge)
+    }
     else if (err) console.log(err)
   }
 

@@ -84,6 +84,13 @@ export default new Router({
       }
     },
     {
+      path: '/thanks',
+      name: 'ThankYou',
+      component: resolve => {
+        require(['./../components/ThankYou.desktop.vue'], resolve)
+      }
+    },
+    {
       path: '*',
       component: resolve => {
         require(['./../components/Landing.desktop.vue'], resolve)

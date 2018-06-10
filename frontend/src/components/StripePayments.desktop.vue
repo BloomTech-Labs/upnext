@@ -8,9 +8,11 @@
 
 <script>
 import {mapActions} from 'vuex'
+import AdminEventMixin from './AdminEventCreate.mixin'
 
 export default {
   methods: {
+    ...mapActions(['addEvent']),
     async checkout() {
       await this.$checkout.open({
         name: 'Enter Payment Details:',
@@ -21,10 +23,16 @@ export default {
           const source = token
           let result = await this.$store.dispatch('makePayment', source);
           console.log(result)
+
+          if (result.paid) {
+            this.$router.push({ name:'ThankYou' })
+            this.addEvent()
           }
-        })  
+          }
+        })                          
       }
-    }
+    },
+    mixins: [AdminEventMixin]
   }
 </script>
 <style>
