@@ -57,7 +57,7 @@ a default payment source (i.e. credit card).  Note that a user have a \`stripeCu
 without necessarily having a billing card.`
     },
 
-    billingCardBrand: {
+    billingCardBrand: { // card.brand
       type: 'string',
       example: 'Visa',
       description:
@@ -66,7 +66,7 @@ without necessarily having a billing card.`
         "To ensure PCI compliance, this data comes from Stripe, where it reflects the user's default payment source."
     },
 
-    billingCardLast4: {
+    billingCardLast4: { // card.last
       type: 'string',
       example: '4242',
       description:
@@ -75,7 +75,7 @@ without necessarily having a billing card.`
         "To ensure PCI compliance, this data comes from Stripe, where it reflects the user's default payment source."
     },
 
-    billingCardExpMonth: {
+    billingCardExpMonth: { 
       type: 'string',
       example: '08',
       description:

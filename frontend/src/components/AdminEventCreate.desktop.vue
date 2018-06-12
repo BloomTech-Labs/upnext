@@ -7,43 +7,43 @@
         <v-divider></v-divider>
         <v-stepper-step :complete="e1 > 2" step="2">Groups</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step step="3">Confirm</v-stepper-step>
+        <v-stepper-step :complete="e1 > 3" step="3">Confirm</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step step="4">Invitations</v-stepper-step>
+        <v-stepper-step :complete="e1 > 4" step="4">Invitations</v-stepper-step>
         <v-divider></v-divider>
-        <v-stepper-step step="5">Payments</v-stepper-step>
+        <v-stepper-step :complete="e1 > 5" step="5">Payments</v-stepper-step>
       </v-stepper-header>
       <v-stepper-items>
         <v-stepper-content step="1">
           <v-layout>
             <v-flex class="mr-3 px-4" xs8>
-              <v-text-field 
-              class="inputBoxes" 
-              id="title" 
-              name="input-1" 
-              label="Event Name" 
+              <v-text-field
+              class="inputBoxes"
+              id="title"
+              name="input-1"
+              label="Event Name"
               v-model="title"></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout>
             <v-flex class="mr-3 px-4" xs8>
-              <v-text-field 
-              class="inputBoxes" 
-              id="title" 
-              name="input-1" 
-              label="Date of Event" 
+              <v-text-field
+              class="inputBoxes"
+              id="title"
+              name="input-1"
+              label="Date of Event"
               v-model="startDate"></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout>
             <v-flex class="mr-3 px-4" xs8>
-              <v-text-field 
-              class="inputBoxes" 
-              id="title" 
-              name="input-1" 
-              label="Give a brief description" 
+              <v-text-field
+              class="inputBoxes"
+              id="title"
+              name="input-1"
+              label="Give a brief description"
               v-model="description"></v-text-field>
             </v-flex>
           </v-layout>
@@ -61,12 +61,12 @@
         </v-stepper-content>
         <v-stepper-content step="3">
     <Schedule :adminCreate="true" :adminShow="false" :nonAdmin="false"></Schedule>
-          <v-btn color="primary" @click.native="e1 = 1">Continue</v-btn>
+          <v-btn color="primary" @click.native="e1 = 4">Continue</v-btn>
           <v-btn flat>Cancel</v-btn>
         </v-stepper-content>
         <v-stepper-content step="4">
     <InvitationForm></InvitationForm>
-          <v-btn color="primary" @click.native="e1 = 1">Continue</v-btn>
+          <v-btn color="primary" @click.native="e1 = 5">Continue</v-btn>
           <v-btn flat>Cancel</v-btn>
         </v-stepper-content>
         <v-stepper-content step="5">
@@ -81,25 +81,24 @@
 
 
 <script>
-import AddGroup from "./AddGroup.desktop";
-import Schedule from "./Schedule.desktop";
-import EventAddMixin from "./AdminEventCreate.mixin";
-import Toolbar from './Toolbar.desktop.vue';
-import StripePayments from './StripePayments.desktop.vue';
-
+import AddGroup from './AddGroup.desktop'
+import Schedule from './Schedule.desktop'
+import EventAddMixin from './AdminEventCreate.mixin'
+import Toolbar from './Toolbar.desktop.vue'
+import StripePayments from './StripePayments.desktop.vue'
 
 export default {
   components: {
     AddGroup,
     Schedule,
     Toolbar,
-    StripePayments,
+    StripePayments
   },
-data () {
-  return ({
-    el: 0
-  }) 
-},
+  data() {
+    return {
+      e1: 0
+    }
+  },
   mixins: [EventAddMixin]
 }
 </script>
@@ -127,7 +126,7 @@ data () {
   background-color: #051760;
   color: white;
   text-shadow: 1px 1px 2px black;
-  font-family: Roboto;  
+  font-family: Roboto;
 }
 .container {
   max-width: 60%;

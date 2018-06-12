@@ -3,6 +3,7 @@
     <v-layout row justify-center>
       <v-dialog v-model="dialog" persistent max-width="500px">
         <v-btn
+        @click="gotoLogin"
         class="loginButton"
         slot="activator"
         text="Log In"
@@ -46,20 +47,25 @@
 <script>
 //const axios = require('axios');
 
-import LoginMixin from './Login.mixin';
+import LoginMixin from './Login.mixin'
 
 export default {
-  data () {
+  data() {
     return {
       dialog: false
     }
   },
+  methods: {
+    gotoLogin() {
+      this.$router.push({ name: 'Login' })
+    }
+  },
   mixins: [LoginMixin]
-};
+}
 </script>
 <style>
 .loginButton {
-  text-shadow: 2px 2px 2px black; 
+  text-shadow: 2px 2px 2px black;
   display: inline-block;
   min-height: 30px;
 }

@@ -6,13 +6,7 @@ module.exports = {
 
     extendedDescription: `EVENTS FOR USER`,
 
-    inputs: {
-      user: {
-        description: 'Name of user to get events for',
-        type: 'string',
-        required: true
-      }
-    },
+    inputs: {},
 
     exits: {
       success: {
@@ -33,28 +27,52 @@ module.exports = {
       }
     },
 
-    fn: async function (inputs, exits) {
+    fn: async function(inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)
 
       //const page = req.param('page');
-      User.findOne({
-          name: inputs.user
-        })
-        .populate('subscribedEvents')
-        .populate('adminEvents')
-        .exec((err, user) => {
-          if (user.isAdmin) {
-            exits.success({
-              events: user.adminEvents
-            });
+      const userId = 0;
+      const isAdmin = 0;
+      if (this.req.cookies.user)
+        userId = CryptographyService.decrypt(this.req.cookies.user);
+
+      if (this.req.cookies.isAdmin)
+        isAdmin = CryptographyService.decrypt(this.req.cookies.isAdmin);
+
+      let allEvents = await Event.find();
+      console.log(allEvents);
+
+      if (isAdmin) {
+        let created = [];
+        let allOthers = [];
+        allEvents.forEach(event => {
+          if (event.owner ? event.owner === !userId : false) {
+            created.push(event);
           } else {
-            exits.success({
-              events: user.subscribedEvents
-            });
+            allOthers.push(event);
           }
         });
+        exits.success({
+          createdEvents: created,
+          otherEvents: allOthers
+        });
+      } else {
+        let subscribed = [];
+        let allOthers = [];
+        allEvents.forEach(event => {
+          if (event.subscribers ? event.subscribers.includes(userId) : false) {
+            subscribed.push(event);
+          } else {
+            allOthers.push(event);
+          }
+        });
+        exits.success({
+          subscribedEvents: subscribed,
+          otherEvents: allOthers
+        });
+      }
 
       // Send success response (this is where the session actually gets persisted)
     }
@@ -93,7 +111,7 @@ module.exports = {
       }
     },
 
-    fn: async function (inputs, exits) {
+    fn: async function(inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)
@@ -160,7 +178,7 @@ module.exports = {
       }
     },
 
-    fn: async function (inputs, exits) {
+    fn: async function(inputs, exits) {
       // Look up by the email address.
       // (note that we lowercase it to ensure the lookup is always case-insensitive,
       // regardless of which database we're using)

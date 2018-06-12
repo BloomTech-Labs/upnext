@@ -83,10 +83,10 @@ export default {
       return this.pageHeight - offset
     },
     isAuthenticated: {
-      get () {
+      get() {
         return this.$store.state.isUserAuthenticated
       }
-    }    
+    }
   }
 }
 </script>

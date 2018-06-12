@@ -5,7 +5,7 @@
     <v-container class="eventDetailsContainer">
     <v-card class="wrappingCard">
       <v-card class="eventDetailsTitle">
-      <v-btn class="backButton">
+      <v-btn @click="goBack" class="backButton">
       <v-icon left> arrow_back</v-icon>
       Back
     </v-btn>
@@ -17,8 +17,8 @@
         </v-card>
         <br>
         <v-card class="textAreaCard">
-            <v-card class="textBoxStyle"> {{eventSummary}} </v-card>
-          </v-card>
+          <v-card class="textBoxStyle"> {{eventSummary}} </v-card>
+        </v-card>
     </v-card>
     </v-container>
   </v-app>
@@ -33,6 +33,13 @@ export default {
   created() {
     console.log('this.eventId', this.eventId)
     console.log('this.singleEvent', this.singleEvent)
+  },
+  methods: {
+    goBack() {
+      this.$router.push({
+        name: 'ViewEvents'
+      })
+    }
   },
 
   // },
