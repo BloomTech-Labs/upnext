@@ -18,11 +18,14 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
-  // datastores: {
-  //   adapter: 'sails-postgresql',
-  //   url: 'postgres://postgres:waterfall1@localhost:5432/vuesails'
-  //   // models: {
-  //   //   connection: 'someMongodbServer'
-  //   // }
-  // }
+  datastores: {
+    default: {
+      adapter: require('sails-postgresql'),
+      ssl: true
+    }
+
+    // models: {
+    //   connection: 'someMongodbServer'
+    // }
+  }
 };
